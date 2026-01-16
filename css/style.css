@@ -1,0 +1,12 @@
+h1 {
+  font-family: 'Arial';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Arial';
+  font-size: 16px;
+}
