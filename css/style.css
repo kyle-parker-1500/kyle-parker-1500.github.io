@@ -1,7 +1,11 @@
 h1 {
   font-family: 'Arial';
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
+}
+
+h1:hover {
+  font-size: 40px;
 }
 
 ul {
@@ -10,4 +14,9 @@ ul {
   color: #ffffff;
   font-family: 'Arial';
   font-size: 16px;
+}
+
+li:hover {
+  font-size: 24px;
+  font-weight: bold;
 }
