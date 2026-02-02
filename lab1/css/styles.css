@@ -7,6 +7,14 @@
     margin: 100 auto;
 }
 
+#quote {
+    font-size: larger;
+}
+
+#welcome {
+    font-size: x-large;
+}
+
 /* Classes */
 /* Styles image title */
 .image_text {
@@ -40,6 +48,7 @@
 
 .footerColor {
     color: gray;
+    font-size: small;
 }
 
 /* Meant to style h1 tags, didn't use 'h1' explicitly because wanted control */
