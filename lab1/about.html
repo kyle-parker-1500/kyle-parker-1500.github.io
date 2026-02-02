@@ -10,8 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Team 6</h1>
-        <hr />
+        <h1 class="title">About</h1>
         
         <nav>
             <div class="row">
@@ -20,41 +19,44 @@
                 <a class="navLink" href="./contact.html">Contact</a>
             </div>
         </nav>
-        <table id="contact_t" >
-            <tr>
-                <th><b>Programming Languages</b></th>
-                <th><b>Years of Experience</b></th>
-            </tr>
-            <tr>
-                <td> Java </td>
-                <td> 3    </td>
-            </tr>
-            <tr>
-                <td> C++  </td>
-                <td> 2    </td>
-            </tr>
-            <tr>
-                <td> Python </td>
-                <td> 2      </td>
-            </tr>
-        </table>
-        <div>
-            <h1><b>Our common hobbies:</b></h1>
-            <ul id="contact_t">
-                <li> Video games: Single player story games </li>
-                <li> Music: Rock genre </li>
-                <li> Sports: Board based activities </li>
+        <center>
+            <table id="experience_table" >
+                <tr id="table_header_row">
+                    <th><span class="table_header_title">Programming Languages</span></th>
+                    <th><span class="table_header_title">Years of Experience</span></th>
+                </tr>
+                <tr>
+                    <td> Java </td>
+                    <td> 3    </td>
+                </tr>
+                <tr>
+                    <td> C++  </td>
+                    <td> 2    </td>
+                </tr>
+                <tr>
+                    <td> Python </td>
+                    <td> 2      </td>
+                </tr>
+            </table>
+        </center>
+        <div class="hobby_section">
+            <h2 id="hobby_title">Our common hobbies:</h2>
+
+            <ul id="hobbies_list">
+                <li><span class="hobby_item">Video games:</span> We all enjoy single player story games. </li>
+                <li><span class="hobby_item">Music:</span> We all listen to rock. </li>
+                <li><span class="hobby_item">Sports:</span> We all partake in board based activities (e.g. snowboarding, surfing etc). </li>
             </ul>
         </div>
-        <br />
-        <br />
-        <hr />
-        <div>
-            <p>Fih</p>
-            <p> CST336 Internet Programing. 2026© Naranjo, Parker</p>
-            <p>Disclaimer: The information on this webpage is fictitious.</p>
-            <p> It is used for academic purposes only.</p>
-            <img src="/lab1/img/MLogo.jpg" width="150" height="50">
+
+        <hr>
+        <br>
+
+        <div class="centerFooter">
+            <img src="https://csumb.github.io/logos/csumb-logo-white.png" width="200" height="50">
+            <p class="footerColor">CST336 Internet Programing. 2026© Naranjo, Parker, Mendoza</p>
+            <p class="footerColor">Disclaimer: The information on this webpage is fictitious.</p>
+            <p class="footerColor">It is used for academic purposes only.</p>
         </div>
     </body>
 </html>

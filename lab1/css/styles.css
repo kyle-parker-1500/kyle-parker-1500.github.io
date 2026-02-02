@@ -1,3 +1,4 @@
+/* Styles Home Page Images */
 #alignImages {
     display: flex;
     justify-content: center;
@@ -5,25 +6,33 @@
     background-color: #335C67;
     margin: 100 auto;
 }
-.cap {
+
+/* Classes */
+/* Styles image title */
+.image_text {
     color:white; 
     text-align: center; 
-    width:100%;
+    font-weight: bold;
+    font-size: large;
 }
 
+/* Adds padding to home images */
 .imagePadding {
     padding: 5% 5% 10px 10px;
 }
 
+/* Adds radius and height to images */
 .styleImage {
     border-radius: 65px; 
     height: 300px;
 }
 
+/* centers text */
 .centerText {
     text-align: center;
 }
 
+/* Footer */
 .centerFooter {
     text-align: center;
 }
@@ -32,25 +41,35 @@
     color: gray;
 }
 
-h1 {
+/* Meant to style h1 tags, didn't use 'h1' explicitly because wanted control */
+.title {
     color: white;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* Styles p tags */
 p {
     color: white;
 }
 
-/* Page Colors */
+/* Page Colors and Margins */
 body {
     background-color: #1D1E18;
+    margin: 0;
 }
 
+hr {
+    margin: 0;
+}
+
+/* Styles nav bar */
 nav {
     background-color: #ffe57c;
     font-weight: bold;
     padding: 5px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .navLink {
@@ -61,24 +80,65 @@ nav {
     padding: 10px;
     margin: 15px;
     font-size: 20px; 
+    border: 2px solid black;
 }
 
+/* Hover animation for navbar links */
+.navLink:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(3px 3px 3px #1D1E18);
+    border: 2px solid white;
+}
+
+/* Displays homepage images in row*/
 .row {
     display: flex;
     justify-content: center;
     margin: auto; 
 }
 
-.navLink:hover {
-    border: 2px solid white;
+/* Styles header row of table */
+#table_header_row {
+    background-color: #ffb890;
+}
+
+/* Styles the table header titles */
+.table_header_title {
+    color: #1D1E18;
+    padding: 10px;
+    font-weight: bold;
 }
 
 /* centers contact text */
-#contact_t{
-    text-align:center;
+#experience_table {
     color: white;
+    border: 1px solid white;
+    margin: 20px;
 }
 
-#horizontalStyle {
+/* Styles the hobby list */
+#hobbies_list {
+    color: white;
+    list-style-type: square;
+    text-align: left;
+    font-size: larger;
+}
+
+/* Styles each title in the list */
+.hobby_section {
+    padding-left: 30%;
+    padding-top: 40px;
+}
+
+.hobby_item {
+    color: #ffb890;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Styling for hobby section */
+#hobby_title {
+    text-align: left; 
+    margin: 20px;
     color: white;
 }
