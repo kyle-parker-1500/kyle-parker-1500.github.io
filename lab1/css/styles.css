@@ -23,7 +23,8 @@
 
 /* Adds radius and height to images */
 .styleImage {
-    border-radius: 65px; 
+    border: 2px solid white;
+    border-radius: 4rem; 
     height: 300px;
 }
 
