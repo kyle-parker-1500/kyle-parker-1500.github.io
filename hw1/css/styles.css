@@ -1,0 +1,29 @@
+/* Default Containers */
+body {
+    background-color: #F8F4E3;
+}
+
+/* Classes */
+.center {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.item {
+    order: 2;    
+    flex: 0 1 auto;
+}
+
+/* Items */
+#title {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00635D;
+}
