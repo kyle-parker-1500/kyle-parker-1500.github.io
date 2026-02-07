@@ -1,6 +1,8 @@
 /* Default Containers */
 body {
     background-color: #F8F4E3;
+    margin: 0;
+    padding: 0;
 }
 
 /* Classes */
@@ -21,8 +23,53 @@ body {
     flex: 0 1 auto;
 }
 
-/* Items */
+/* Nav */
+.nav_container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    background-color: #4C212A;
+    width: 100%;
+    padding: 5px;
+}
+
+.nav_container ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+/* Nav Item */
+.nav_container ul li a {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    color: #F8F4E3;
+    background-color: #01172F;
+    text-decoration: none;
+    border: 2px solid #F8F4E3;
+    border-radius: 2px;
+}
+
+.nav_container ul li a:hover {
+    background-color: #00635D; 
+    border: 2px solid #F8F4E3;
+    transform: scale(1.1);
+    filter: drop-shadow(3px 3px 3px #01172F);
+}
+
+.nav_container ul li a:active {
+    scale: 1.1;
+    background-color: #446DF6;
+}
+
+/* Ids */
 #title {
+    margin: 10px;
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     color: #00635D;
