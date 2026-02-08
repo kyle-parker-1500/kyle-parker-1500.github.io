@@ -1,8 +1,26 @@
+/* Color Palette */
+:root {
+    --navBar: #4C212A;
+    --buttonBackground: #01172F;
+    --textColor: #F8F4E3;
+    --textShadow: #00635D;
+    --titleColor: #00635D;
+    --backgroundColor: #F8F4E3;
+}
+
+
 /* Default Containers */
 body {
-    background-color: #F8F4E3;
+    background-color: var(--backgroundColor);
     margin: 0;
     padding: 0;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    border: 2px solid var(--titleColor);
+    border-radius: 3px;
 }
 
 /* Classes */
@@ -16,6 +34,7 @@ body {
     flex-flow: column wrap;
     gap: 10px;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 .item {
@@ -23,12 +42,40 @@ body {
     flex: 0 1 auto;
 }
 
+/* Buttons Linking to Info at the Bottom of Pages */
+.infoLink {
+    color: var(--textColor);
+    padding: 5px;
+    background-color: var(--buttonBackground);
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.infoLink:hover {
+    background-color: var(--backgroundColor);
+    color: black;
+    filter: drop-shadow(3px 3px 3px #01172F);
+}
+
+/* Body Paragraphs */
+.articleTitle{
+    font-size: 25px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 0.5px 0.5px 1px var(--textShadow);
+}
+
+.container p {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 /* Nav */
 .nav_container {
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
-    background-color: #4C212A;
+    background-color: var(--navBar);
     width: 100%;
     padding: 5px;
 }
@@ -48,16 +95,16 @@ body {
     text-align: center;
     margin: 10px;
     padding: 10px;
-    color: #F8F4E3;
-    background-color: #01172F;
+    color: var(--textColor);
+    background-color: var(--buttonBackground);
     text-decoration: none;
-    border: 2px solid #F8F4E3;
+    border: 2px solid var(--backgroundColor);
     border-radius: 2px;
 }
 
 .nav_container ul li a:hover {
-    background-color: #00635D; 
-    border: 2px solid #F8F4E3;
+    background-color: var(--titleColor); 
+    border: 2px solid var(--backgroundColor);
     transform: scale(1.1);
     filter: drop-shadow(3px 3px 3px #01172F);
 }
@@ -74,3 +121,4 @@ body {
     font-family: 'Courier New', Courier, monospace;
     color: #00635D;
 }
+
