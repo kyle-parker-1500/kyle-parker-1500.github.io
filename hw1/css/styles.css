@@ -6,6 +6,7 @@
     --textShadow: #00635D;
     --titleColor: #00635D;
     --backgroundColor: #F8F4E3;
+    --funNewColor: #0FA3B1;
 }
 
 
@@ -52,6 +53,20 @@ img {
 }
 
 .infoLink:hover {
+    background-color: var(--backgroundColor);
+    color: black;
+    filter: drop-shadow(3px 3px 3px #01172F);
+}
+
+.imageLink {
+    color: var(--textColor);
+    padding: 5px;
+    background-color: var(--funNewColor);
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.imageLink:hover {
     background-color: var(--backgroundColor);
     color: black;
     filter: drop-shadow(3px 3px 3px #01172F);

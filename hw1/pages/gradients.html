@@ -12,7 +12,7 @@
     <body>
         <nav class="nav_container">
             <ul>
-                <li><a href="./hw1/index.html">Home</a></li>               
+                <li><a href="/index.html">Home</a></li>               
                 <li><a href="./linear_regression.html">Regression</a></li>              
                 <li><a href="./trees.html">Trees</a></li>               
                 <li><a href="./neural_networks.html">Neural Networks</a></li>               
@@ -23,14 +23,25 @@
         </header> 
         
         <h3 class="articleTitle center">
+            What is Gradient Descent?
         </h3> 
         
         <div class="container">
             <div class="item">
-                <p>Some text</p>
-                <p>Some text</p>
-                <p>Some text</p>
-                <p>Some text</p>
+                <p>According to MLU Explain: "Gradient descent is an iterative optimization algorithm that estimates some set of coefficients to yield the minimum of a convex function". Or, in layman's terms, it finds suitable numbers such that our prediction error is minimized.</p>
+
+                <p><b>How does it work?</b><br> Assuming we have some convex function that represents the error of a machine learning algorithm (ex: MSE- check <a href="./linear_regression.html">Regression</a> if you don't know what I'm talking about). Gradient descent will iteratively update the model's coefficients, but basically numbers, moving them towards the <i>error function's</i> minimum. Basically: This approach will identify the coefficients needed to fit the data.</p>
+
+            </div>
+
+            <img class="item" src="https://imgs.search.brave.com/4gKu7SFgY4EL8TjuPD8rYEQzhAfaTn0nhnkme6th0kg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZGF0YWNhbXAu/Y29tL2ltYWdlL3Vw/bG9hZC92MTY0NzYx/MjYwMS9pbWFnZTNf/amluYWplLnBuZw" alt="A Gradient Descent hand drawn set of images">
+
+            <div class="item center">
+                <p>This information was obtained from: MLU Explain</p>
+                <a class="infoLink" href="https://mlu-explain.github.io/linear-regression/">Take me there!</a>
+                
+                <p>The image was found here:</p>
+                <a class="imageLink" href="https://www.datacamp.com/tutorial/tutorial-gradient-descent">DataCamp</a>
             </div>
         </div>
         

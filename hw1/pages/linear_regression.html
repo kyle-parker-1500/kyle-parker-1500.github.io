@@ -12,7 +12,7 @@
     <body>
         <nav class="nav_container">
             <ul>
-                <li><a href="./hw1/index.html">Home</a></li>              
+                <li><a href="/index.html">Home</a></li>              
                 <li><a href="./gradients.html">Gradients</a></li>               
                 <li><a href="./trees.html">Trees</a></li>               
                 <li><a href="./neural_networks.html">Neural Networks</a></li>               
@@ -23,15 +23,19 @@
         </header> 
         
         <h3 class="articleTitle center">
-            
+            A Brief Overview of How it Works
         </h3>
         
         <div class="container">
             <div class="item">
-                <p></p>
-                <p>Some text</p>
-                <p>Some text</p>
-                <p>Some text</p>
+                <p>Linear regression is one of the most basic models in machine learning due to the ability to extend other models/ideas off of it. Its purpose is to predict a numeric response from a set of one or greater independent variables (often represented using a line through data points).</p>
+
+                <p>Predicting values using linear models such as these is really easy. That's because the data is aligned linearly, once we find some equation to mimic the average behavior we can predict the outcome of, for example, prices.</p>
+
+                <p>To train a model such as this, we need to first identify a way to evaluate how well our model has performed. In machine learning terms, these are called <i>loss functions</i>. One of the most popular loss functions is <b><i>mean squared error (MSE)</i></b>. </p>
+
+                <p><b>Mean Squared Error:</b><br> This function measures how close a predicted value is to the true value, this can be used to measure how close a regression line is to a set of points. It works by squaring the distance between each data point and the regression line. In doing this we can get the sum of all of the squared values and divide by the total number of data points, effictively giving us the average or mean.<br> Squaring the errors in this manner prevents negative and positive errors cancelling out when we sum them. It also, this is far more important to training our model, gives more weight to points further from the regression line. It's <i>basically</i> punishing a point for being far from the line. Fitting our regression model to a set of training data, we can use MSE on the dataset to train our model!</p>
+                
             </div>
             <img class="item" id="linear_regression_img" src="https://imgs.search.brave.com/GNg4eMrVIz8zKmt8dotfgyCSOG-snBw3iEhTG13tI_Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/aWNvbnM4LmNvbS9l/eHRlcm5hbC1zbWFz/aGluZ3N0b2Nrcy1t/aXhlZC1zbWFzaGlu/Zy1zdG9ja3MvMTIw/MC9leHRlcm5hbC1s/aW5lYXItcmVncmVz/c2lvbi1kYXRhLXNj/aWVuY2Utc21hc2hp/bmdzdG9ja3MtbWl4/ZWQtc21hc2hpbmct/c3RvY2tzLTIuanBn" alt="A Linear Regression Plot">
 
