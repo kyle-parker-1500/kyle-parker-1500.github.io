@@ -4,11 +4,12 @@
     --buttonBackground: #01172F;
     --textColor: #F8F4E3;
     --textShadow: #00635D;
+    --buttonShadow: #01172F;
     --titleColor: #00635D;
     --backgroundColor: #F8F4E3;
     --funNewColor: #0FA3B1;
+    --currentNavItemBackground: #A71D31;
 }
-
 
 /* Default Containers */
 body {
@@ -85,7 +86,7 @@ img {
     margin-right: 15%;
 }
 
-/* Nav */
+/* Nav Bar */
 .nav_container {
     display: flex;
     justify-content: space-around;
@@ -97,36 +98,43 @@ img {
 
 .nav_container ul {
     display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style: none; 
     overflow: hidden;
     text-decoration: none;
+    margin: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 5px;
 }
 
-/* Nav Item */
-.nav_container ul li a {
-    display: block;
+/* Each Nav Menu Item */
+.nav_container a {
+    display: inline-block;
     text-align: center;
     margin: 10px;
     padding: 10px;
-    color: var(--textColor);
-    background-color: var(--buttonBackground);
     text-decoration: none;
     border: 2px solid var(--backgroundColor);
     border-radius: 2px;
+    color: var(--textColor);
+    background-color: var(--buttonBackground);
 }
 
-.nav_container ul li a:hover {
-    background-color: var(--titleColor); 
-    border: 2px solid var(--backgroundColor);
-    transform: scale(1.1);
-    filter: drop-shadow(3px 3px 3px #01172F);
+/* Current Menu Item */
+.nav_container a.current {
+    background-color: var(--currentNavItemBackground);
+    scale: 1.2;
 }
 
-.nav_container ul li a:active {
-    scale: 1.1;
-    background-color: #446DF6;
+.nav_container a:hover {
+    transform: scale(1.2); 
+    background-color: var(--titleColor);
+    filter: drop-shadow(3px 3px 3px var(--buttonShadow));
+}
+
+.nav_container a:active {
+    background-color: var(--funNewColor);
+    transform: scale(1.3);
 }
 
 /* Ids */
