@@ -128,11 +128,13 @@ img {
 
 .nav_container a:hover {
     transform: scale(1.2); 
-    transition: 0.3s;
-    transition-duration: 0.3s;
     background-color: var(--titleColor);
+    /* transition: transform 0.3s ease; -> smooth button animations, doesn't work here though*/
     filter: drop-shadow(3px 3px 3px var(--buttonShadow));
 }
+
+/* .nav_container a.item_transition {
+} */
 
 /* Ids */
 #title {
