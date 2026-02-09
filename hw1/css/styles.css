@@ -56,7 +56,7 @@ img {
 .infoLink:hover {
     background-color: var(--backgroundColor);
     color: black;
-    filter: drop-shadow(3px 3px 3px #01172F);
+    filter: drop-shadow(3px 3px 3px var(--buttonBackground));
 }
 
 .imageLink {
@@ -142,9 +142,17 @@ img {
     margin: 10px;
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
-    color: #00635D;
+    color: var(--titleColor);
 }
 
 #linear_regression_img {
     width: 35%;
+}
+
+#introduction_image {
+    width: 35%;
+}
+
+#smaller_button_new_html {
+    scale: 0.8;
 }
