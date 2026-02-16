@@ -39,7 +39,7 @@ function checkGuess() {
     let guess = document.querySelector("#playerGuess").value;
     console.log("Player guess: " + guess);
     if (guess < 1 || guess > 99) {
-        feedback.textContent = "Enter a number between 1 and 99";
+        feedback.textContent = "Enter a number between 1 and 99!";
         feedback.style.color = "red";
         return;
     }
@@ -64,6 +64,7 @@ function checkGuess() {
             feedback.style.color = "red";
             // update losses
             losses++;
+            document.querySelector("#feedback").textContent += "\nThe number was: " + randomNumber;
             document.querySelector("#losses").textContent = losses;
             gameOver();
         } else if (guess > randomNumber) {
