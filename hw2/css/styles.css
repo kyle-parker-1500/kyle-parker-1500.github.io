@@ -1,0 +1,38 @@
+:root {
+    /* Variable Sizes */
+    --img-size: 25%;
+    --default-margin: 0;
+    --default-padding: 0;
+    --card-size: 20%;
+    
+    /* Color Palette */
+}
+
+body {
+    margin: var(--default-margin);
+    padding: var(--default-padding);
+}
+
+.card {
+    border: 2px solid black;
+    border-radius: 1rem; 
+    box-shadow: 0 4px 8px 1px rgba(0,0,0,0.5);
+    width: var(--card-size);
+
+    transition: 0.3s;
+    margin: 2vw;
+    padding: 2vw;
+    gap: 2vw;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    scale: 101%;
+    transition: 0.3s;
+}
+
+.card img {
+    width: var(--img-size);
+    height: auto;
+    border-radius: 5px;
+}
