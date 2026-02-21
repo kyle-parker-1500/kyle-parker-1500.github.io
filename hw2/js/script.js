@@ -89,29 +89,45 @@ function createDynamicCard(cardObj) {
     // button div
     let buttonDiv = document.createElement("div");
     
+    // + button & + button counter display
+    let posBtnDisplayDiv = document.createElement("div");
+    let negBtnDisplayDiv = document.createElement("div");
+    
+    // button displays
+    let posBtnDisplay = document.createElement("div");
+    posBtnDisplay.id = `pos-display-${cardBody.id}`;
+    let negBtnDisplay = document.createElement("div");
+    negBtnDisplay.id = `neg-display-${cardBody.id}`;
+    
     // + button
     let positiveButton = document.createElement("button");
     positiveButton.textContent = "✅";
-    positiveButton.addEventListener("click", positiveButtonHandler);
+    positiveButton.addEventListener("click", function() { positiveButtonHandler(cardBody.id); });
 
     // - button
     let negativeButton = document.createElement("button");
     negativeButton.textContent = "❌";
-    negativeButton.addEventListener("click", negativeButtonHandler);
-
+    negativeButton.addEventListener("click", function() { negativeButtonHandler(cardBody.id); });
+    
     // delete button
     let deleteButton = document.createElement("button");
-    deleteButton.id = `${cardObj.getId}-delete-button`;
-    console.log(deleteButton.id);
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", function() { removeCard(cardBody.id); }); // delete card on click listener
 
     // br
     let breakHtml = document.createElement("br");
-    
-    // connect buttons to button div
-    buttonDiv.append(positiveButton);
-    buttonDiv.append(negativeButton);
+
+    // add + & - buttons & displays to individual divs
+    posBtnDisplayDiv.append(posBtnDisplay);
+    posBtnDisplayDiv.append(breakHtml);
+    posBtnDisplayDiv.append(positiveButton);
+    negBtnDisplayDiv.append(negBtnDisplay);
+    negBtnDisplayDiv.append(breakHtml);
+    negBtnDisplayDiv.append(negativeButton);
+
+    // connect buttons & display div to button div
+    buttonDiv.append(posBtnDisplayDiv);
+    buttonDiv.append(negBtnDisplayDiv);
     buttonDiv.append(breakHtml); // newline
     buttonDiv.append(deleteButton);
 
@@ -135,13 +151,17 @@ function removeCard(currentId) {
 }
 
 let posCount = 0;
-function positiveButtonHandler() {
+function positiveButtonHandler(currentId) {
     posCount++;
-    console.log("negative button clicked", posCount, "times!");
+    let posDisplay = document.querySelector(`#pos-display-${currentId}`);
+    posDisplay.textContent = posCount;
+    posDisplay.style.color = "green";
 }
 
 let negCount = 0;
-function negativeButtonHandler() {
+function negativeButtonHandler(currentId) {
     negCount++;
-    console.log("negative button clicked", negCount, "times!");
+    let negDisplay = document.querySelector(`#neg-display-${currentId}`);
+    negDisplay.textContent = negCount;
+    negDisplay.style.color = "red";
 }
