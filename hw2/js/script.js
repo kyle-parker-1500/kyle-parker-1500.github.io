@@ -12,7 +12,62 @@ function autoFillCardContent(betTitle = "No bet", betImgSrc = srcValues.defaultC
     getBetDescription.textContent = betDescription;
 }
 
+let cardDisplay = document.createElement("div");
+cardDisplay.class = "card-display";
+cardDisplay.append(createDynamicCard());
+
+/**
+ * Invoke this to create a new card with the specified content. 
+ * @param {Object} cardContentObj 
+ */
+function createDynamicCard(cardContentObj) {
+    
+    let cardBody = document.createElement("div"); // outermost div
+    cardBody.class = "card";
+    
+    let cardTitle = document.createElement("h2"); // inner div
+    cardTitle.class = "title";
+    
+    // connect title to overall body
+    cardBody.append(cardTitle);
+    
+    let cardImg = document.createElement("img");
+    cardImg.alt = "Test alt";
+    
+    // connect img to body
+    cardBody.append(cardImg);
+
+    // description div
+    let cardDescriptionDiv = document.createElement("div");
+    cardDescriptionDiv.class = "card-content";
+
+    let cardDescriptionTitle = document.createElement("h3");
+    
+    let cardDescription = document.createElement("p");
+    cardDescription.class = "card-content-description";
+
+    let buttonDiv = document.createElement("div");
+    let positiveButton = document.createElement("button");
+    positiveButton.textContent = "✅";
+    let negativeButton = document.createElement("button");
+    negativeButton.textContent = "❌";
+    
+    // connect buttons to button div
+    buttonDiv.append(positiveButton)
+    buttonDiv.append(negativeButton);
+
+    // connect elements to description div
+    cardDescriptionDiv.append(cardDescriptionTitle)
+    cardDescriptionDiv.append(cardDescription)
+    cardDescriptionDiv.append(buttonDiv);
+    
+    // connect to outer div
+    cardBody.append(cardDescriptionDiv);
+    
+    return cardBody; 
+}
+
 /**
  * Main Generation Loop
  */
-autoFillCardContent("Title", "https://imgs.search.brave.com/mJFsB9PgoORVbfYsA_1O6cfr9FtbRKjBQf__ppZLRBY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMTUw/MTA2NjQuanBn", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis erat vitae mauris molestie tristique. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean non mi a velit malesuada auctor in id urna. Mauris aliquam arcu nec lobortis lobortis. Praesent non auctor metus. Aliquam at venenatis leo. Nulla facilisi. Cras fringilla sem dignissim sagittis tristique. Sed blandit justo pulvinar, aliquet lectus quis, volutpat neque. Etiam dictum purus sed tortor egestas, vitae iaculis nunc interdum. Quisque condimentum augue ut nisi molestie mattis tempus posuere justo. In non orci et massa posuere tempus vitae nec dolor. Vivamus facilisis aliquet felis, euismod feugiat lacus lacinia sit amet. Curabitur sed justo mauris. Pellentesque sit amet venenatis ante. Nunc nisi turpis, tristique eget ligula sollicitudin, convallis pharetra nunc");
+autoFillCardContent("Title", "https://imgs.search.brave.com/mJFsB9PgoORVbfYsA_1O6cfr9FtbRKjBQf__ppZLRBY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMTUw/MTA2NjQuanBn", "First to get a girlfriend in college.");
