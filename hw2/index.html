@@ -7,34 +7,37 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/styles.css">
-        <script src="js/script.js" defer></script>
+        <script src="js/script.js" async defer></script>
+        <script src="js/Card.js" async defer></script>
     </head>
     <body>
         <header>
             <h1>Bet.</h1>
         </header>
+        <!-- Create Card -->
+        <fieldset id="create-card">
+            <legend>Create Card</legend>
+            Card Title:<br>
+            <input id="card-title" type="text"><br>
+            Card Image Source:<br>
+            <input id="card-img" type="text"><br>
+            Card Description:<br>
+            <input id="card-description" type="text"><br><br>               
+            <button id="create-card-button">Create Card</button>
+        </fieldset>
         <div id="card-display">
-            <div class="card">
-                <h2 class="card-title">Title</h2>
-                <img alt="test image">
-                <div class="card-content">
-                    <h3>Description:</div> 
-                    <p class="card-content-description">This is a description of the bet contained within the card.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h2 class="card-title">Title</h2>
-                <img src="https://imgs.search.brave.com/hv9MyoJ25Tz8LbfWr8RIkJo9pwd8V2LTpKWnCO-FMww/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JlYXRlYWkuY29t/L2Jsb2cvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjUvMTEvYTZw/N3FyYTZwN3FyYTZw/Ny04MDl4ODA5LnBu/Zw" alt="test image">
-                <div class="card-content">
-                    <h3>Description:</div> 
-                    <p class="card-content-description">This is a description of the bet contained within the card.</p>
-
-                    <div class="card-buttons">
-                        <button class="agree-button">✅</button>
-                        <button class="disagree-button">❌</button>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </body>
 </html>
+
+<!--
+card html code
+<div class="card">
+    <h2 class="card-title">Title</h2>
+    <img alt="test image">
+    <div class="card-content">
+        <h3>Description:</div> 
+        <p class="card-content-description">This is a description of the bet contained within the card.</p>
+    </div>
+</div> -->

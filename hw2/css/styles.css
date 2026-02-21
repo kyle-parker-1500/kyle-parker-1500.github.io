@@ -1,9 +1,9 @@
 :root {
     /* Variable Sizes */
-    --img-size: 25%;
-    --default-margin: 0;
+    --default-margin: 10px;
     --default-padding: 0;
-    --card-size: 20%;
+    --card-size: 25%;
+    --image-size: 100%;
     
     /* Color Palette */
 }
@@ -22,17 +22,26 @@ body {
     transition: 0.3s;
     margin: 2vw;
     padding: 2vw;
-    gap: 2vw;
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     scale: 101%;
-    transition: 0.3s;
+    transition: all 0.5s;
 }
 
 .card img {
-    width: var(--img-size);
+    width: var(--image-size);
     height: auto;
     border-radius: 5px;
+}
+
+/* Ids */
+#create-card {
+    width: fit-content;
+}
+
+#card-display {
+    display: grid;
+    justify-content: space-between;
 }
