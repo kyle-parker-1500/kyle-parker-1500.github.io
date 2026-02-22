@@ -1,3 +1,4 @@
+/* Variables & Color Palettes */
 :root {
     /* Variable Sizes */
     --default-margin: 10px;
@@ -8,11 +9,13 @@
     /* Color Palette */
 }
 
+/* Default Classes */
 body {
     margin: var(--default-margin);
     padding: var(--default-padding);
 }
 
+/* Classes */
 .card {
     border: 2px solid black;
     border-radius: 1rem; 
@@ -42,6 +45,7 @@ body {
 }
 
 #card-display {
-    display: grid;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap; 
+    /* justify-content: space-evenly; */
 }

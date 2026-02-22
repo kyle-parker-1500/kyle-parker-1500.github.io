@@ -102,12 +102,12 @@ function createDynamicCard(cardObj) {
     // + button
     let positiveButton = document.createElement("button");
     positiveButton.textContent = "✅";
-    positiveButton.addEventListener("click", function() { positiveButtonHandler(cardBody.id); });
+    positiveButton.addEventListener("click", function() { positiveButtonHandler(cardBody.id, cardObj); });
 
     // - button
     let negativeButton = document.createElement("button");
     negativeButton.textContent = "❌";
-    negativeButton.addEventListener("click", function() { negativeButtonHandler(cardBody.id); });
+    negativeButton.addEventListener("click", function() { negativeButtonHandler(cardBody.id, cardObj); });
     
     // delete button
     let deleteButton = document.createElement("button");
@@ -147,21 +147,53 @@ function createDynamicCard(cardObj) {
 // todo: may need a class to handle each card's unique properties
 function removeCard(currentId) {
     document.querySelector(`#${currentId}`).remove();
-    cardHistory.delete(currentId);
+    const parsedKey = parseInt(currentId.replace("card-", ""));
+    cardHistory.delete(parsedKey);
 }
 
-let posCount = 0;
-function positiveButtonHandler(currentId) {
-    posCount++;
+function positiveButtonHandler(currentId, currentCard) {
+    currentCard.incPosCount = 1;
+
+    // display count
     let posDisplay = document.querySelector(`#pos-display-${currentId}`);
-    posDisplay.textContent = posCount;
+    posDisplay.textContent = currentCard.getPositiveBtnCount;
     posDisplay.style.color = "green";
 }
 
-let negCount = 0;
-function negativeButtonHandler(currentId) {
-    negCount++;
+function negativeButtonHandler(currentId, currentCard) {
+    // update class count
+    currentCard.incNegCount = 1;
+
+    // display count
     let negDisplay = document.querySelector(`#neg-display-${currentId}`);
-    negDisplay.textContent = negCount;
+    negDisplay.textContent = currentCard.getNegativeBtnCount;
     negDisplay.style.color = "red";
+}
+
+document.querySelector("#update-leaderboard-button").addEventListener("click", findMostAndLeastLikedBet);
+
+let totalLikes = {
+    maxId: 0,
+    maxLikes: -1,
+    minId: 0,
+    minLikes: -1 
+};
+
+function findMostAndLeastLikedBet() {
+    totalLikes.maxId = 0; 
+    totalLikes.maxLikes = -1; 
+
+    // search map for most liked card and set shadow to be green
+    for (let card of cardHistory) {
+        if (card[1].getPositiveBtnCount > totalLikes.maxLikes) {
+            totalLikes.maxId = card[1].getId;
+            totalLikes.maxLikes = card[1].getPositiveBtnCount; 
+        }
+    }
+    
+    console.log("UPDATE:\nMax Id: ", totalLikes.maxId, "\nMax Like Count: ", totalLikes.maxLikes);
+    
+
+    // search map for least liked card and set shadow to be red
+    
 }
