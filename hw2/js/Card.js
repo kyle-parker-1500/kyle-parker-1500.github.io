@@ -3,6 +3,7 @@
 defaultSrc = "https://imgs.search.brave.com/qJ72j35M6Ch2s1mu4UX21y8l9hwSY_LRykf3fhv1oj8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNS8w/OC8xNi8xMi8xMC9t/aW5pb24tODkwODMx/XzY0MC5qcGc";
 
 class Card {
+    /* Basic Card Model */
     static id = 0; // autoincremented
     title = "No title."; // unique title for each card
     src = defaultSrc; // unique image for each card
@@ -10,6 +11,11 @@ class Card {
     positiveBtnCount = 0;
     negativeBtnCount = 0;
     
+    /* All cards overall stats */
+    static maxLikedId = 0;
+    static maxLikes = -1;
+    static minLikedId = 0;
+    static minLikes = -1;
     
     // initialize cards with title, img, description
     constructor(title = "No title.", src = defaultSrc, description = "No description.") {
@@ -45,6 +51,22 @@ class Card {
         return this.negativeBtnCount;
     }
     
+    get getMaxLikedId() {
+        return this.maxLikedId;
+    }
+    
+    get maxLikes() {
+        return this.maxLikes;
+    }
+    
+    get minLikedId() {
+        return this.minLikedId;
+    }
+    
+    get minLikes() {
+        return this.minLike;
+    }
+    
     // setters
     set incPosCount(count) {
         this.positiveBtnCount += 1;
@@ -52,6 +74,22 @@ class Card {
     
     set incNegCount(count) {
         this.negativeBtnCount += 1;
+    }
+    
+    set maxLikedId(newId) {
+        this.maxLikedId = newId; 
+    }
+    
+    set maxLikes(newLikes) {
+        this.maxLikes = newLikes;
+    }
+    
+    set minLikedId(newId) {
+        this.minLikedId = newId;
+    }
+    
+    set minLikes(newLikes) {
+        this.minLikes = newLikes;
     }
 };
 

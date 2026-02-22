@@ -1,23 +1,31 @@
 /**
- * Fields: id, title, img, description
- * Getters for all but id.
+ * Class:
+ * Fields: static id, title, img, description, posCount, negCount
+ * Getters for all. Setters for incrementing button counts.
  */
 
+
+/* All Global Variables */
 /**
  * A hashmap to store each card under a unique and sequential id.
  */
 const cardHistory = new Map();
-
 // div to display all cards -> needs to be global to remove cards
 let cardDisplay = document.querySelector("#card-display");
+
+
+/* All Event Listeners */
+// create card event listener
+document.querySelector("#create-card-button").addEventListener("click", displayCard);
+// update card listener
+document.querySelector("#update-leaderboard-button").addEventListener("click", findMostAndLeastLikedBet);
+
 
 let srcValues = {
     defaultCardImg: "https://imgs.search.brave.com/hv9MyoJ25Tz8LbfWr8RIkJo9pwd8V2LTpKWnCO-FMww/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JlYXRlYWkuY29t/L2Jsb2cvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjUvMTEvYTZw/N3FyYTZwN3FyYTZw/Ny04MDl4ODA5LnBu/Zw",
     testImg: "https://imgs.search.brave.com/6hQBGW7tbuin4IufBsYbmHMVq5Hk36C-D2X_Rju8Ssg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTQ3NzI3Mi9waG90/by9jcmF6eS1zZW5p/b3ItbWFuLWhhdmlu/Zy1mdW4tZG9pbmct/cGFydHktZHVyaW5n/LWhvbGlkYXlzLXRp/bWUtZWxkZXJseS1w/ZW9wbGUtY2VsZWJy/YXRpbmctbGlmZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/WmJWMDhEVFJNeTNx/NlpqMERwNlVQWGJr/UmdKTzFmaXc2N2hu/dUF4OEgzQT0",
 }
 
-// create card event listener
-document.querySelector("#create-card-button").addEventListener("click", displayCard);
 
 function displayCard() {
     // getting card content from webpage
@@ -169,15 +177,6 @@ function negativeButtonHandler(currentId, currentCard) {
     negDisplay.textContent = currentCard.getNegativeBtnCount;
     negDisplay.style.color = "red";
 }
-
-document.querySelector("#update-leaderboard-button").addEventListener("click", findMostAndLeastLikedBet);
-
-let totalLikes = {
-    maxId: 0,
-    maxLikes: -1,
-    minId: 0,
-    minLikes: -1 
-};
 
 function findMostAndLeastLikedBet() {
     totalLikes.maxId = 0; 
