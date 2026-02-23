@@ -14,21 +14,21 @@ class Card {
     /* All cards overall stats */
     static maxLikedId = 0;
     static maxLikes = -1;
-    static minLikedId = 0;
-    static minLikes = -1;
+    static maxDislikedId = 0;
+    static maxDislikes = -1;
     
     // initialize cards with title, img, description
     constructor(title = "No title.", src = defaultSrc, description = "No description.") {
         // todo: determine if this will increment when different objects are created
-        this.id += 1; // increment id each time an object is created
+        Card.id += 1; // increment id each time an object is created
         this.title = title;
         this.src = src;
         this.description = description;
     }
     
     // getters
-    get getId() {
-        return this.id;
+    static get getId() {
+        return Card.id;
     } 
 
     get getTitle() {
@@ -51,20 +51,20 @@ class Card {
         return this.negativeBtnCount;
     }
     
-    get getMaxLikedId() {
-        return this.maxLikedId;
+    static get getMaxLikedId() {
+        return Card.maxLikedId;
     }
     
-    get maxLikes() {
-        return this.maxLikes;
+    static get getMaxLikes() {
+        return Card.maxLikes;
     }
     
-    get minLikedId() {
-        return this.minLikedId;
+    static get getMaxDislikedId() {
+        return Card.maxDislikedId;
     }
     
-    get minLikes() {
-        return this.minLike;
+    static get getMaxDislikes() {
+        return Card.maxDislikes;
     }
     
     // setters
@@ -76,20 +76,20 @@ class Card {
         this.negativeBtnCount += 1;
     }
     
-    set maxLikedId(newId) {
-        this.maxLikedId = newId; 
+    static set setMaxLikedId(newId) {
+        Card.maxLikedId = newId; 
     }
     
-    set maxLikes(newLikes) {
-        this.maxLikes = newLikes;
+    static set setMaxLikes(newLikes) {
+        Card.maxLikes = newLikes;
     }
     
-    set minLikedId(newId) {
-        this.minLikedId = newId;
+    static set setMaxDislikedId(newId) {
+        Card.maxDislikedId = newId;
     }
     
-    set minLikes(newLikes) {
-        this.minLikes = newLikes;
+    static set setMaxDislikes(newLikes) {
+        Card.maxDislikes = newLikes;
     }
 };
 

@@ -42,10 +42,10 @@ function displayCard() {
     const currentCard = new Card(titleValue, imgValue, descriptionValue);
     
     // add card to history
-    cardHistory.set(currentCard.getId, currentCard); 
+    cardHistory.set(Card.getId, currentCard); 
 
     // displaying cards
-    let dynamicCard = createDynamicCard(cardHistory.get(currentCard.getId));
+    let dynamicCard = createDynamicCard(cardHistory.get(Card.getId));
     cardDisplay.append(dynamicCard.card);
     
     // clear input boxes
@@ -55,7 +55,8 @@ function displayCard() {
 }
 
 /**
- * 
+ * A function that creates a card from the Card class. Each card is an instance of the class.
+ * The class also has static variables to keep track of the overall statistics of all the cards.
  * @param {Object} cardObj 
  * @returns Card Object 
  */
@@ -63,7 +64,7 @@ function createDynamicCard(cardObj) {
     
     // outermost div
     let cardBody = document.createElement("div");
-    cardBody.id = `card-${cardObj.getId}`; // set unique id to access card with
+    cardBody.id = `card-${Card.getId}`; // set unique id to access card with
     cardBody.className = "card";
     
     // overall card title
@@ -179,20 +180,29 @@ function negativeButtonHandler(currentId, currentCard) {
 }
 
 function findMostAndLeastLikedBet() {
-    totalLikes.maxId = 0; 
-    totalLikes.maxLikes = -1; 
-
     // search map for most liked card and set shadow to be green
     for (let card of cardHistory) {
-        if (card[1].getPositiveBtnCount > totalLikes.maxLikes) {
-            totalLikes.maxId = card[1].getId;
-            totalLikes.maxLikes = card[1].getPositiveBtnCount; 
+        let i = card[1];
+        if (i.getPositiveBtnCount > Card.getMaxLikes) {
+            Card.setMaxLikedId = card[0];
+            Card.setMaxLikes = i.getPositiveBtnCount; 
+        }
+        if (i.getNegativeBtnCount > Card.getMaxDislikes) {
+            Card.setMaxDislikedId = card[0];
+            Card.setMaxDislikes = i.getNegativeBtnCount;
         }
     }
     
-    console.log("UPDATE:\nMax Id: ", totalLikes.maxId, "\nMax Like Count: ", totalLikes.maxLikes);
-    
-
-    // search map for least liked card and set shadow to be red
-    
+    if (Card.getMaxLikedId != Card.getMaxDislikedId) {
+        // reset green card shadow color
+        document.querySelector(`#card-${Card.getMaxLikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
+        // set new green card
+        document.querySelector(`#card-${Card.getMaxLikedId}`).style["boxShadow"] = "0 4px 8px 1px #0dff0080";
+        
+        // reset red card shadow color
+        document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
+        // set new red card
+        document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #ff000080";
+    }
 }
+
