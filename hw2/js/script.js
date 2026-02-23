@@ -12,6 +12,28 @@
 const cardHistory = new Map();
 // div to display all cards -> needs to be global to remove cards
 let cardDisplay = document.querySelector("#card-display");
+// arrays of default options for random card generation 
+let titlesList = {
+    0: "First to learn to fly a plane",
+    1: "Last to get a job",
+    2: "Last to go cliff diving",
+};
+let imagesList = {
+    0: "https://imgs.search.brave.com/hv9MyoJ25Tz8LbfWr8RIkJo9pwd8V2LTpKWnCO-FMww/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JlYXRlYWkuY29t/L2Jsb2cvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjUvMTEvYTZw/N3FyYTZwN3FyYTZw/Ny04MDl4ODA5LnBu/Zw",
+    1: "https://imgs.search.brave.com/6hQBGW7tbuin4IufBsYbmHMVq5Hk36C-D2X_Rju8Ssg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTQ3NzI3Mi9waG90/by9jcmF6eS1zZW5p/b3ItbWFuLWhhdmlu/Zy1mdW4tZG9pbmct/cGFydHktZHVyaW5n/LWhvbGlkYXlzLXRp/bWUtZWxkZXJseS1w/ZW9wbGUtY2VsZWJy/YXRpbmctbGlmZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/WmJWMDhEVFJNeTNx/NlpqMERwNlVQWGJr/UmdKTzFmaXc2N2hu/dUF4OEgzQT0",
+    2: "https://imgs.search.brave.com/BY0CdwBgeQm9yYVtUnO-QvsfM4-AsNtdukd_6PEiLwk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTQ3NzI3Mi9waG90/by9jcmF6eS1zZW5p/b3ItbWFuLWhhdmlu/Zy1mdW4tZG9pbmct/cGFydHktZHVyaW5n/LWhvbGlkYXlzLXRp/bWUtZWxkZXJseS1w/ZW9wbGUtY2VsZWJy/YXRpbmctbGlmZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/WmJWMDhEVFJNeTNx/NlpqMERwNlVQWGJr/UmdKTzFmaXc2N2hu/dUF4OEgzQT0"
+};
+let descriptionList = {
+    0: "I think that Lennon will be the first to cliff dive",
+    1: "I think that Maddux will be the first to fly a plane",
+    2: "I think that Arjun will be the last to get a job",
+};
+
+const defaultObjects = [
+    titlesList,
+    imagesList,
+    descriptionList
+];
 
 
 /* All Event Listeners */
@@ -19,13 +41,6 @@ let cardDisplay = document.querySelector("#card-display");
 document.querySelector("#create-card-button").addEventListener("click", displayCard);
 // update card listener
 document.querySelector("#update-leaderboard-button").addEventListener("click", findMostAndLeastLikedBet);
-
-
-let srcValues = {
-    defaultCardImg: "https://imgs.search.brave.com/hv9MyoJ25Tz8LbfWr8RIkJo9pwd8V2LTpKWnCO-FMww/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JlYXRlYWkuY29t/L2Jsb2cvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjUvMTEvYTZw/N3FyYTZwN3FyYTZw/Ny04MDl4ODA5LnBu/Zw",
-    testImg: "https://imgs.search.brave.com/6hQBGW7tbuin4IufBsYbmHMVq5Hk36C-D2X_Rju8Ssg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTQ3NzI3Mi9waG90/by9jcmF6eS1zZW5p/b3ItbWFuLWhhdmlu/Zy1mdW4tZG9pbmct/cGFydHktZHVyaW5n/LWhvbGlkYXlzLXRp/bWUtZWxkZXJseS1w/ZW9wbGUtY2VsZWJy/YXRpbmctbGlmZS5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/WmJWMDhEVFJNeTNx/NlpqMERwNlVQWGJr/UmdKTzFmaXc2N2hu/dUF4OEgzQT0",
-}
-
 
 function displayCard() {
     // getting card content from webpage
@@ -205,4 +220,3 @@ function findMostAndLeastLikedBet() {
         document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #ff000080";
     }
 }
-
