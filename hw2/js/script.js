@@ -35,6 +35,17 @@ const defaultObjects = [
     descriptionList
 ];
 
+// card inputs
+const cardTitle = document.querySelector("#card-title");
+const cardImg = document.querySelector("#card-img");
+const cardDescription = document.querySelector("#card-description");
+
+// card input generate buttons
+const generateTitle = document.querySelector("#generate-title");
+const generateImg = document.querySelector("#generate-img");
+const generateDescription = document.querySelector("#generate-description");
+
+
 
 /* All Event Listeners */
 // create card event listener
@@ -42,15 +53,31 @@ document.querySelector("#create-card-button").addEventListener("click", displayC
 // update card listener
 document.querySelector("#update-leaderboard-button").addEventListener("click", findMostAndLeastLikedBet);
 
+// for autogenerating cards
+generateTitle.addEventListener("click", updateTitle);
+generateImg.addEventListener("click", updateImg);
+generateDescription.addEventListener("click", updateDescription);
+
+function updateTitle() {
+    cardTitle.value = defaultObjects[0][Math.floor(Math.random() * 2)]; 
+}
+
+function updateImg() {
+    cardImg.value = defaultObjects[1][Math.floor(Math.random() * 2)]; 
+}
+
+function updateDescription() {
+    cardDescription.value = defaultObjects[2][Math.floor(Math.random() * 2)]; 
+}
+
+
+
 function displayCard() {
     // getting card content from webpage
-    const cardTitle = document.querySelector("#card-title");
     const titleValue = cardTitle.value;
 
-    const cardImg = document.querySelector("#card-img");
     const imgValue = cardImg.value; 
     
-    const cardDescription = document.querySelector("#card-description");
     const descriptionValue = cardDescription.value; 
 
     // create card obj
@@ -112,47 +139,48 @@ function createDynamicCard(cardObj) {
 
     // button div
     let buttonDiv = document.createElement("div");
-    
+    buttonDiv.className = "card-button-div"
+        
     // + button & + button counter display
     let posBtnDisplayDiv = document.createElement("div");
     let negBtnDisplayDiv = document.createElement("div");
     
     // button displays
     let posBtnDisplay = document.createElement("div");
+    posBtnDisplay.className = "card-button-displays";
     posBtnDisplay.id = `pos-display-${cardBody.id}`;
     let negBtnDisplay = document.createElement("div");
+    negBtnDisplay.className = "card-button-displays";
     negBtnDisplay.id = `neg-display-${cardBody.id}`;
     
     // + button
     let positiveButton = document.createElement("button");
     positiveButton.textContent = "✅";
+    positiveButton.className = "card-buttons";
     positiveButton.addEventListener("click", function() { positiveButtonHandler(cardBody.id, cardObj); });
 
     // - button
     let negativeButton = document.createElement("button");
     negativeButton.textContent = "❌";
+    negativeButton.className = "card-buttons";
     negativeButton.addEventListener("click", function() { negativeButtonHandler(cardBody.id, cardObj); });
     
     // delete button
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    deleteButton.className = "card-buttons";
     deleteButton.addEventListener("click", function() { removeCard(cardBody.id); }); // delete card on click listener
-
-    // br
-    let breakHtml = document.createElement("br");
 
     // add + & - buttons & displays to individual divs
     posBtnDisplayDiv.append(posBtnDisplay);
-    posBtnDisplayDiv.append(breakHtml);
     posBtnDisplayDiv.append(positiveButton);
+
     negBtnDisplayDiv.append(negBtnDisplay);
-    negBtnDisplayDiv.append(breakHtml);
     negBtnDisplayDiv.append(negativeButton);
 
     // connect buttons & display div to button div
     buttonDiv.append(posBtnDisplayDiv);
     buttonDiv.append(negBtnDisplayDiv);
-    buttonDiv.append(breakHtml); // newline
     buttonDiv.append(deleteButton);
 
     // connect elements to description div
@@ -195,6 +223,16 @@ function negativeButtonHandler(currentId, currentCard) {
 }
 
 function findMostAndLeastLikedBet() {
+    let tempLikedId = Card.getMaxDislikedId;
+    let tempDislikedId = Card.getMaxDislikedId;
+    
+    if (tempLikedId === null) {
+        tempLikedId = 0;
+    }
+    if (tempDislikedId === null) {
+        tempDislikedId = 0;
+    }
+    
     // search map for most liked card and set shadow to be green
     for (let card of cardHistory) {
         let i = card[1];
@@ -208,15 +246,24 @@ function findMostAndLeastLikedBet() {
         }
     }
     
+    // current issue -> not an issue with submitting for 336: never resets shadow color before updating
+    // Issue diagnosis: need a previously max liked id and disliked id so we can update things before the ids change
     if (Card.getMaxLikedId != Card.getMaxDislikedId) {
         // reset green card shadow color
-        document.querySelector(`#card-${Card.getMaxLikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
+        document.querySelector(`#card-${tempLikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
         // set new green card
         document.querySelector(`#card-${Card.getMaxLikedId}`).style["boxShadow"] = "0 4px 8px 1px #0dff0080";
         
         // reset red card shadow color
-        document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
+        document.querySelector(`#card-${tempDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
         // set new red card
         document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #ff000080";
+    } else {
+        document.querySelector(`#card-${Card.getMaxLikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
+        document.querySelector(`#card-${Card.getMaxDislikedId}`).style["boxShadow"] = "0 4px 8px 1px #00000080";
     }
+    
+    // update temp vars
+    tempLikedId = Card.getMaxLikedId;
+    tempDislikedId = Card.getMaxDislikedId;
 }

@@ -7,6 +7,12 @@
     --image-size: 100%;
     
     /* Color Palette */
+    --dark-blue: #05668D;
+    --light-blue: #427AA1;
+    --white-blue: #EBF2FA; 
+    --dark-purple: #320E3B;
+    --red-pink: #C1666B;
+    --shadow: #00000080;
 }
 
 /* Default Classes */
@@ -19,7 +25,7 @@ body {
 .card {
     border: 2px solid black;
     border-radius: 1rem; 
-    box-shadow: 0 4px 8px 1px #00000080;
+    box-shadow: 0 4px 8px 1px var(--shadow);
     width: var(--card-size);
 
     transition: 0.3s;
@@ -28,7 +34,7 @@ body {
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 var(--shadow);
     scale: 101%;
     transition: all 0.5s;
 }
@@ -39,13 +45,114 @@ body {
     border-radius: 5px;
 }
 
+.generate-buttons {
+    background-color: var(--light-blue);
+    border: none;
+    color: var(--white-blue);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 2px 2px;
+    cursor: pointer;
+    
+    transition: all ease-out 0.2s;
+}
+
+.generate-buttons:hover {
+    box-shadow: 0 2px 4px 0 var(--shadow);
+    scale: 102%;
+    transition: all ease-in 0.3s; 
+}
+
+.generate-cards {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    padding: 2px 2px;
+    margin: 2px;
+}
+
+.card-buttons {
+    border: none;
+    border-radius: 5px;
+    color: red;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 8px;
+    cursor: pointer;
+    
+    transition: all ease-out 0.2s;
+}
+.card-buttons {
+    box-shadow: 0 2px 4px 0 var(--shadow);
+    scale: 101%;
+    transition: all ease-in 0.2s;
+}
+
+.card-button-div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-button-displays {
+    text-align: center; 
+    font-size: 15px;
+    font-weight: bold;
+}
+
 /* Ids */
 #create-card {
     width: fit-content;
+    background-color: var(--white-blue);
 }
 
 #card-display {
     display: flex;
     flex-wrap: wrap; 
     /* justify-content: space-evenly; */
+}
+
+#create-card-button {
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 5px;
+    color: var(--white-blue);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 8px;
+    cursor: pointer;
+    
+    transition: all ease-out 0.2s;
+}
+#create-card-button:hover {
+    box-shadow: 0 2px 4px 0 var(--shadow);
+    scale: 101%;
+    transition: all ease-in 0.2s;
+}
+
+#update-leaderboard-button {
+    background-color: var(--dark-purple);
+    border: none;
+    border-radius: 5px;
+    color: var(--white-blue);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 8px;
+    cursor: pointer;
+    
+    transition: all ease-out 0.2s;
+}
+
+#update-leaderboard-button:hover {
+    box-shadow: 0 2px 4px 0 var(--shadow);
+    scale: 101%;
+    transition: all ease-in 0.2s;
 }
