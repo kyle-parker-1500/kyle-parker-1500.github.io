@@ -4,9 +4,648 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog!</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <a href="https://github.com/kyle-parker-1500/note-taking-tutorial">In case you made it here before I had a chance to write anything.</a>
+    <h1 id="easy-college-notes-for-cs-students-mostly-">Easy College Notes (For CS Students Mostly)</h1>
+      <p>This is a step by step guide to show you how to <em>A</em>, take good notes and <em>B</em>, study more efficiently.</p>
+    <h1 id="table-of-contents">Table of Contents</h1>
+    <ol>
+      <li>
+        <a href="#taking-effective-notes">Effective Notes with NeoVim</a>
+        <ol>
+          <li><a href="#for-vim-users">For VIM Users</a></li>
+          <li><a href="#terminal-commands">Terminal Commands</a></li>
+          <li><a href="#neovim-tutorial">NeoVim/Vim Tutorial</a></li>
+          <li><a href="#markdown-commands">Markdown Commands</a></li>
+          <li><a href="#the-git-part">The Git Part</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#for-regular-people">Effective Notes For Regular People</a>
+        <ol>
+          <li><a href="#initializing-a-git-repo-on-a-local-machine">Initializing a Git Repo</a></li>
+          <li><a href="#terminal-commands">Terminal Commands</a></li>
+          <li><a href="#markdown-commands">Markdown Commands</a></li>
+          <li><a href="#setting-up-github-repository">Setting up a GitHub Repo</a></li>
+        </ol>
+      </li>
+      <li><a href="#use-ai-to-create-quizzes-for-yourself">Taking Notes with AI</a>
+        <ol>
+          <li><a href="#prompt">Prompt</a></li>
+        </ol>
+      </li>
+    </ol>
+    <h2 id="taking-effective-notes">Taking &quot;Effective&quot; Notes</h2>
+    <p>In this case, any notes are effective notes, so the style of them doesn&#39;t really matter. <br>
+    I&#39;ll attach some of my notes to this document to show you how I generally take notes.</p>
+    <ol>
+      <li>You have to first ask yourself: Am <em>I</em> a VIM user?</li>
+    </ol>
+    <p>The answer may be no at first but let me tell you this:
+    I used to hate sitting down to code, mostly because using a mouse was annoying to say the least, so I picked up VIM (and I&#39;m never going back)</p>
+    <p>Basically your answer should be yes, but I&#39;ll account for both cases in-case you&#39;re not ready to take the leap
+    If you&#39;re not ready click this: <a href="#for-regular-people">Non-Vim Tutorial (Boring)</a></p>
+    <!-- Vim Tutorial -->
+    <h2 id="for-vim-users">For VIM Users</h2>
+    <p>By the way, I&#39;m including EMACS and other text editor users in this case. (Although if you use them and not VIM what are you even doing tbh) → :)</p>
+    <ol>
+      <li>
+        <p>Install VIM. I would suggest <strong>NeoVim</strong> for everyone: Essentially it&#39;s VIM, just a newer version</p>
+      </li>
+      <li>
+        <p>Here&#39;s the <a href="https://neovim.io/doc/install/">Link</a> for Windows and a blog <a href="https://dev.to/ajtech0001/complete-guide-installing-and-configuring-neovim-on-macos-4a9e">post</a> for Mac</p>
+      </li>
+      <li>
+        <p>You can also get a NeoVim plugin on both <strong>Intellij</strong> and <strong>VSCode</strong> (which, if you&#39;re serious about learning VIM, is a great idea. (It&#39;s called immersion))</p>
+      </li>
+      <li>
+        <p>After installing NeoVim and getting it working → you can check if it&#39;s working by doing <code>nvim --version</code> on both Unix (Mac and Linux) and Windows</p>
+      </li>
+      <li>
+        <p>(Optional) I would also <em>very</em> highly recommend you install a plugin manager for NeoVim. This just helps if you want a different look and feel for your NeoVim than the default (which looks boring and doesn&#39;t feel good). My current plugin manager is <a href="http://www.lazyvim.org/">LazyVim</a>, because I&#39;m lazy and I like using VIM.</p>
+      </li>
+      <li>
+        <p>Pro tip: After doing this you can ask AI → mainly Claude to create plugins for you! (This comes directly from Dr. C...&#39;s blog post from a couple years ago) -&gt; AND IT WORKS!</p>
+        <ul>
+          <li>Here&#39;s the link if anyone wants it: <a href="https://clinkenbeard.info/blog/2025/claude-dev-tool-customization/">Dr. C&#39;s Blog</a> → I&#39;m not sure how happy he&#39;ll be with me for sharing this btw so maybe don&#39;t mention it to him</li>
+        </ul>
+      </li>
+      <li>
+        <p>If you&#39;re not comfortable with using a plugin manager such as LazyVim: I would suggest you use either VSCode or Intellij. I personally prefer VSCode because it takes less time to start up normally, and it feels more versatile. But it&#39;s really up to you.</p>
+      </li>
+    </ol>
+    <!-- Time to Take Notes -->
+    <h3 id="time-to-take-notes">Time to take Notes</h3>
+    <p>Now that we&#39;re ready to take notes, let me walk you through my typical setup. Since I know most of you are CS majors, I&#39;ll try to include a lot of pictures.</p>
+    <ol>
+      <li>Launch your terminal.</li>
+    </ol>
+    <p><img src="./images/terminal_launch.png" alt="Image of Launched Terminal"></p>
+    <ul>
+      <li>If you&#39;re on <em>Windows</em> you should install the <em>terminal app</em> (<a href="https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&amp;gl=US&amp;ocid=pdpshare">Link</a>) from the Windows Store and use Powershell with it. Alternatively (to Powershell, you should definitely get <em>terminal</em>), you can use WSL2 to get a Linux style shell within Windows. Here&#39;s the tutorial for installation: <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL2 Installation</a></li>
+      <li>
+        <p>Linux and Mac users, you&#39;re fine. (I bet all you Linux users are excited to be put before Mac in this sentence. It&#39;s probably the first time you&#39;ve ever been picked first for anything... except hackathons :) )</p>
+      </li>
+      <li>
+        <p>Linux shame aside (I use Windows I shouldn&#39;t be talking), navigate to a folder that you want to take notes in.</p>
+      </li>
+    </ul>
+    <p><img src="./images/terminal_notes_folder.png" alt="Image of Folder I Take Notes In"></p>
+    <!-- Terminal Commands -->
+    <h4 id="terminal-commands">Terminal Commands</h4>
+    <p><a href="#initializing-a-git-repo-on-a-local-machine">Back To Regular People (More Like Boring People) Tutorial</a></p>
+    <ul>
+      <li>
+        <p>These instructions are for those of you who don&#39;t know how to navigate through the terminal:</p>
+      <ul>
+      <li>
+        <p><code>cd directory</code> - to enter a directory → <em>hint:</em> you can use <code>cd ..</code> to go up a directory (to go back to the previous directory) or <code>cd ../../../../..</code> to go back many directories. Using this you can go pretty much anywhere in your terminal. If you want to navigate to a different hard drive you can do <code>cd</code> to get to your root directory, then <code>cd drive:</code> it would look like -&gt; <code>cd v:</code> or just <code>v:</code> if you&#39;re lazy (don&#39;t worry I know you better than you know yourself... you&#39;re lazy).</p>
+      </li>
+      <li>
+        <p><code>mkdir new_name</code> you can use <code>mkdir</code> to &#39;make directory&#39;, the <code>directory name</code> shouldn&#39;t contain any spaces. Although, I <em>think</em> you can include spaces if you do something like <code>mkdir &quot;new_directory&quot;</code> but that&#39;s bad practice, especially for programmers.</p>
+      </li>
+      <li>
+        <p>If you want to open VSCode from your current directory you can use <code>code .</code>, make sure you have an <em>environment variable</em> set up for VSCode first. You can also just open any file in VSCode using <code>code /this/is/a/path/name/directory(or file)</code>. Keep in mind, if you want to open a file you have to specify the file type.</p>
+      </li>
+      <li>
+        <p><code>ls</code> → use <code>ls</code> to list everything in the current or specified directory. Specified meaning <code>ls /path/to/dir</code></p>
+      </li>
+      <li>
+        <p><code>mv</code> to either move a file or rename → <em>moving</em>: <code>mv filename.filetype ../previous_directory</code> or <em>renaming</em>: <code>mv filename.filetype new_filename.filetype</code>, you can also rename directories with this command.</p>
+      </li>
+      <li>
+        <p><code>rm</code> → be careful with this one. This is how you delete things: <code>rm filename.filetype</code>, if someone tells you to <code>rm -rf</code> something DON&#39;T LISTEN TO THEM!! <code>-rf</code> is an option that recursively forces all files and all directories to be removed from your current or specified directory all the way down (this is only for Mac and Linux users though... I think).</p>
+      </li>
+      <li>
+        <p><code>clear</code> → use this to clear your terminal screen of all the &quot;hard&quot; work you&#39;ve been doing</p>
+      </li>
+      <li>
+        <p>Final thing → use <code>pwd</code> to check your <em>present working directory</em></p>
+      </li>
+      <li>
+        <p>That&#39;s basically it for basic terminal commands (these apply to both windows terminal and unix terminals). If you want something more advanced check out some guides online: Here&#39;s one → <a href="https://serverspace.us/support/help/windows-cmd-commands-cheat-sheet/">Advanced Guide (For Nerds)</a></p>
+      </li>
+    </ul>
+    <p>Here are those commands in action:</p>
+    <img src="./images/terminal_commands_demonstration_1.png" alt="Terminal Commands Demonstration 1">
+    <img src="./images/terminal_commands_demonstration_2.png" alt="Terminal Commands Demonstration 2">
+    <img src="./images/terminal_commands_demonstration_3.png" alt="Terminal Commands Demonstration 3">
+    <p>You can also use <code>Tab</code> the key on your keyboard to autocomplete your command (you&#39;re dumb for still reading the stuff inside these parenthesis)</p>
+    </li>
+    <li>
+      <p>Now that our basic terminal commands tutorial is over let&#39;s get on to notes:</p>
+    </li>
+    <li>
+      <p>Navigate to the folder that you want your notes to be in. I would suggest naming it something like <code>SCHOOL_NAME/CLASS_NAME/notes</code> or you can do what I do and just have one directory for all notes <code>SCHOOL_NAME/CURRENT_SEMESTER/CLASS_NAME/CURRENT_WEEK (or current subject)</code></p>
+      <ul>
+        <li>Make sure that you are inside the directory that you want to be in. You can check this by doing <code>pwd</code> (present working directory)</li>
+      </ul>
+    </li>
+    <li>
+      <p>Now we&#39;re going to initialize a Git repository. If you don&#39;t already have Git → Git it: <a href="https://git-scm.com/install/">Link</a> *Nudge Nudge* Git it, Git it... Okay I&#39;ll stop</p>
+    </li>
+    <li>
+      <p>We do this for 2 reasons: 1. So we can push changes to GitHub and it&#39;s remote repository (and access them from anywhere), and 2. So if we f*uck up (yes ik I didn&#39;t censor it properly), and want to restore an old version of our notes, we totally can.</p>
+      <ul>
+        <li>
+          <p>By the way, this also allows your friends to add their own notes for a repository *<em>Pyramid Scheme</em>*</p>
+        </li>
+      </ul>
+    </li>
+    <li>So with my reasoning explained and Git installed: Let&#39;s do <code>git init</code>, alternatively you can clone a remote repository, but I prefer this method because it&#39;s more challenging, and I like challenging others.</li>
+    <li>
+      <p>This initializes a new repository on our local machine, that doesn&#39;t implicitly create a repository on GitHub, however. But we&#39;ll get to that.</p>
+    </li>
+    <li>
+      <p>Now let&#39;s add some notes, these can be temporary or they can be real notes and you can come back to this tutorial later. Alternatively, you can drag this file into your notes folder.</p>
+    </li>
+    <li>
+      <p>I&#39;ll assume you want to learn how to use VIM though.</p>
+    </li>
+    <li>With NeoVim installed: You can navigate to your notes folder and type in <code>nvim filename.md</code>. We&#39;ll be using <em>markdown</em> files for our notes. This is because they&#39;re easy to write and we can translate them into beautiful notes just by typing in some symbols. Here&#39;s a <a href="https://www.datacamp.com/cheat-sheet/markdown-cheat-sheet-23">Link</a>.</li>
+    <li>That last command should open up a NeoVim terminal! Now, let&#39;s do a quick VIM tutorial. This most certainly will not cover everything but it is enough to get you started.</li>
+
+    <!-- NeoVim Tutorial -->
+    <h3 id="neovim-tutorial">NeoVim Tutorial</h3>
+    <p>First off, here&#39;s a quick online game that you can play to get some of the movements down. <a href="https://vim-adventures.com/">Link</a></p>
+    <p>Vim is definitely much easier once you get the muscle memory down for the movements/commands. If you feel like this is too much, I can assure you, it only gets worse. BUT! Vim is an incredibly powerful text editor (or whatever it&#39;s actually called), and in a few months, or even a year, you&#39;ll be incredibly glad that you pushed yourself to learn it now. (It&#39;s useful in so many applications (also it looks cool)).</p>
+    <p>Ever pictured yourself doing some Mr. Robot type shit, me too! But not the illegal stuff, just the typing fast and being emo stuff.</p>
+    <ul>
+      <li>Tip: You can run <code>vimtutor</code> in the terminal to learn the first commands too!</li>
+      <li>Got that tip from: <a href="https://vim.rtorr.com/">Link</a></li>
+    </ul>
+    <p><strong>Basic NeoVim Commands:</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Commands</th>
+          <th>What They Do</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>k</td>
+          <td>Move Cursor Up</td>
+        </tr>
+        <tr>
+          <td>j</td>
+          <td>Move Cursor Down</td>
+        </tr>
+        <tr>
+          <td>h</td>
+          <td>Move Cursor Left</td>
+        </tr>
+        <tr>
+          <td>l</td>
+          <td>Move Cursor Right</td>
+        </tr>
+        <tr>
+          <td>esc (escape key)</td>
+          <td>Enter &quot;Normal&quot; Mode (for moving cursor)</td>
+        </tr>
+        <tr>
+          <td>:</td>
+          <td>Command Line Mode (for commands)</td>
+        </tr>
+        <tr>
+          <td>:w</td>
+          <td>Write to file (save)</td>
+        </tr>
+        <tr>
+          <td>:q</td>
+          <td>Quit file (make sure to write first!)</td>
+        </tr>
+        <tr>
+          <td>:wq</td>
+          <td>Write and then quit file</td>
+        </tr>
+        <tr>
+          <td>i</td>
+          <td>Insert Mode (for typing)</td>
+        </tr>
+        <tr>
+          <td>v</td>
+          <td>Visual Mode (highlighting)</td>
+        </tr>
+        <tr>
+          <td>w</td>
+          <td>Move to beginning of next word</td>
+        </tr>
+        <tr>
+          <td>e</td>
+          <td>Move to end of current word</td>
+        </tr>
+        <tr>
+          <td>b</td>
+          <td>Move to beginning of previous word</td>
+        </tr>
+        <tr>
+          <td>r</td>
+          <td>Replace current character</td>
+        </tr>
+        <tr>
+          <td>R</td>
+        <td>Keep replacing until esc is pressed</td>
+        </tr>
+        <tr>
+          <td>dd</td>
+        <td>Delete full line (and save it until something else is deleted )</td>
+        </tr>
+        <tr>
+          <td>dd</td>
+          <td>Cut</td>
+        </tr>
+        <tr>
+          <td>dw</td>
+          <td>Delete word</td>
+        </tr>
+        <tr>
+          <td>yy</td>
+          <td>Copy Line</td>
+        </tr>
+        <tr>
+          <td>p</td>
+          <td>Paste saved text below cursor (either dd or yy, whichever was performed last)</td>
+        </tr>
+        <tr>
+          <td>P</td>
+          <td>Paste saved text above cursor (either dd or yy, whichever was performed last)</td>
+        </tr>
+        <tr>
+          <td>o</td>
+          <td>Insert empty line below cursor</td>
+        </tr>
+        <tr>
+          <td>O</td>
+          <td>Insert empty line above cursor</td>
+        </tr>
+        <tr>
+          <td>gg</td>
+          <td>Go to top of the file</td>
+        </tr>
+        <tr>
+          <td>G</td>
+          <td>Go to bottom of the file</td>
+        </tr>
+        <tr>
+          <td>gul</td>
+          <td>Make 1 character to the right lowercase</td>
+        </tr>
+        <tr>
+          <td>gUl</td>
+          <td>Make 1 character to the right uppercase</td>
+        </tr>
+        <tr>
+          <td>*</td>
+          <td>Display all instances of the word the cursor is on (can use n and N to navigate)</td>
+        </tr>
+        <tr>
+          <td>&gt;&gt;</td>
+          <td>Indent one line</td>
+        </tr>
+        <tr>
+          <td>&lt;&lt;</td>
+          <td>Un-indent (idk what it&#39;s called) one line</td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td>Search (forward) through the file (you can use N and n to navigate which word you&#39;re on)</td>
+        </tr>
+        <tr>
+          <td>u</td>
+          <td>Undo</td>
+        </tr>
+        <tr>
+          <td>Ctrl+r</td>
+          <td>Redo</td>
+        </tr>
+        <tr>
+          <td>&quot;*y</td>
+          <td>Copy specified text to clipboard</td>
+        </tr>
+        <tr>
+          <td>&quot;*p</td>
+          <td>Paste text from clipboard</td>
+        </tr>
+        <tr>
+          <td>:%s/word_to_replace/word_to_replace_with/</td>
+          <td>Replace all instances of first word with second word (without asking if it&#39;s okay &rarr; ask me how I know that)</td>
+        </tr>
+        <tr>
+          <td>:%s/word_to_replace/word_to_replace_with/g</td>
+          <td>Replace all instances of first word with second word (without asking if it&#39;s okay to do so)</td>
+        </tr>
+        <tr>
+          <td>:%s/word_to_replace/word_to_replace_with/gc</td>
+          <td>Replace all instances of first word with second word (asks if it&#39;s okay)</td>
+        </tr>
+        <tr>
+          <td>:help</td>
+          <td>To help you learn all commands</td>
+        </tr>
+        <tr>
+          <td>:help specific_command</td>
+          <td>To help you learn one specific command</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Okay that&#39;s just about all the VIM commands I know. There&#39;s so many more though. So do your research and then come teach me some commands. The more unique the command the more extra credit I&#39;ll give you! (Just kidding, I can&#39;t give out extra credit).</p>
+    <p>Keep in mind you can add numbers before any of these commands to affect many more lines.</p>
+    <p>Side note: If you want to get to full screen in LazyVim on Windows you can use <code>LAlt+Enter</code> and press it again to leave.</p>
+    <!-- Markdown Commands -->
+    <h4 id="markdown-commands">Markdown Commands</h4>
+    <p><a href="#initializing-a-git-repo-on-a-local-machine">Link Back to Reg. People Tutorial</a></p>
+    <ul>
+      <li>Okay! You&#39;re in VIM and you know how to use it!!</li>
+      <li>Let&#39;s learn some markdown things now!</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Symbols</th>
+          <th>What They Do:</th>
+          <th>What They Should Look Like</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>#</td>
+        <td>Header 1 (Biggest)</td>
+        <td># Header #</td>
+      </tr>
+      <tr>
+        <td>##</td>
+        <td>Header 2 (Second Biggest)</td>
+        <td>## Header ##</td>
+      </tr>
+      <tr>
+        <td>### (can go up to 6 #)</td>
+        <td>Header 3 (Third Biggest)</td>
+        <td>### Header ###</td>
+      </tr>
+      <tr>
+        <td>These Go Up to 6 ###### so I&#39;m moving on. They just keep making the header text smaller.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>``</td>
+        <td>Inline Code Highlighting (no syntax highlighting)</td>
+        <td><code>code</code></td>
+      </tr>
+      <tr>
+        <td>```name of language ```</td>
+        <td>Block Code Highlighting (provides syntax highlighting if you provide the language)</td>
+        <td><code>c++ int x = 0;</code></td>
+      </tr>
+      <tr>
+        <td>1.</td>
+        <td>Ordered List (Can indent)</td>
+        <td>1.</td>
+      </tr>
+      <tr>
+        <td>-</td>
+        <td>Unordered List (Can indent)</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>*word*</td>
+        <td>Italics</td>
+        <td><em>word</em></td>
+      </tr>
+      <tr>
+        <td>**word**</td>
+        <td>Bold</td>
+        <td><strong>word</strong></td>
+      </tr>
+      <tr>
+        <td>-[]</td>
+        <td>Checklist</td>
+        <td>-[] (may not display properly)</td>
+      </tr>
+      <tr>
+        <td>[]()</td>
+        <td>Link Something</td>
+        <td><a href="Link in here (no quotes needed">Text For Link Here</a>) <a href="https://github.com/kyle-parker-1500">Link</a></td>
+      </tr>
+      <tr>
+        <td>![]()</td>
+        <td>Display Image</td>
+        <td><img src="Path name (no quotes needed" alt="Alt Text For Image Here">)</td>
+      </tr>
+      <tr>
+        <td>[]()</td>
+        <td>Link a Header</td>
+        <td><a href="\#reference-goes-here-no-spaces-all-lowercase\">Link Text</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <p>I think that&#39;s about it. Like VIM there&#39;s many more, but I either haven&#39;t learned them or forgot about them. Play around with it though. You can also insert tables, but I&#39;ll let you figure that out on your own. LazyVim makes it really easy btw!</p>
+    <p>By the way! You can also use <code>&lt;br&gt;</code> to insert a newline just like html. In fact, you can use quite a few html tags in markdown.</p>
+    <p><b>stuff is bold here using 2 &lt;b&gt; tags. </b></p>
+    <p>Oh well, you&#39;re in CS because you want money right, so do some research.</p>
+    <p>Now that you know VIM and Markdown properly, write some notes! I&#39;ll wait right here . .
+    . <br>
+    . <br>
+    . <br>
+    . <br>
+    . <br>
+    . <br></p>
+    <p>Okay, now let&#39;s <code>:wq</code> (write quit) the file and move on to updating your git repository. (Make sure you&#39;re using <code>:w</code> often when you write your notes.)
+    At least as often as when you save your code, if not more. Vim/NeoVim are not the greatest at saving your work if you lose it.
+    But that&#39;s why we have Git!</p>
+    <!-- The Git Part -->
+    <h3 id="the-git-part">The Git Part</h3>
+    <p>Now that we have our notes, let&#39;s connect them to a GitHub remote repository so we can access our work from anywhere.</p>
+    <ol>
+      <li>Go to GitHub and navigate to your account profile. It&#39;s typically going to be <code>https://github.com/your-username/</code></li>
+      <li>Navigate to the <code>Repositories</code> tab at the top next to <code>Overview</code></li>
+      <li>Click on <code>New</code> in the top right corner</li>
+    </ol>
+    <p><img src="./images/github_new_button_and_repo_tab.png" alt="GitHub Where the New Button Is"></p>
+    <ol>
+      <li>Give your repository a meaningful name (it makes it easier, trust me). I normally name mine something like: <code>IronManWasTheBestSupervillanAroundUntilHeTragicallyBecameASuperHeroAndSavedALotOfLivesForSomeReasonIMeanDudeHeDidntHaveToSnap</code> or something like that.</li>
+      <li>Choose your repo visibility. Since we&#39;re writing notes, I typically make mine private so people don&#39;t find my badly written notes when searching for one of my projects</li>
+      <li>Don&#39;t change anything besides that and create the repository.</li>
+    </ol>
+    <p><img src="./images/github_repo_creation.png" alt="Repo Creation"></p>
+    <ol>
+      <li>
+        <p>A window should pop up displaying a link similar to this one: <code>https://github.com/your-username/your-repo-name.git</code></p>
+      </li>
+      <li>
+        <p>Note the <code>.git</code> at the end of the link, that&#39;s important for setting up your local repository so make sure you have it</p>
+      </li>
+      <li>
+        <p>Copy the link and go back to your local machine (make sure you open the terminal (or keep it open) to where your notes are being stored)</p>
+      </li>
+    </ol>
+    <p><img src="./images/github_repo_creation_2.png" alt="After Creating Repo (Still in GitHub)"></p>
+    <ol>
+    <li>If you don&#39;t know if your notes are in your current directory remember to use <code>ls</code> (list) to check</li>
+    <li>Your local repository should be initialized (remember we did <code>git init</code>), so we can now do: <code>git remote -v</code> to check if we have any remote repositories connected to our local one</li>
+    </ol>
+    <p><img src="./images/git_commands_1.png" alt="Git Commands 1"></p>
+    <ol>
+    <li>If anything other than absolutely nothing comes up either keep it because you likely know what you&#39;re doing OR do <code>git remote remove origin</code> (that removes your remote repository link)</li>
+    </ol>
+    <p><img src="./images/git_commands_2.png" alt="Git Commands 2"></p>
+    <ol>
+    <li><p>Also do <code>git status</code>. If, at the top left it says you&#39;re on branch <code>master</code> then you want to execute this command <code>git branch -M main</code> which will rename it to main</p>
+    </li>
+    <li><p>The reason we do this is because most of GitHub has moved away from using <code>master</code> as a root origin branch name</p>
+    </li>
+    <li><p>Now execute this command: <code>git remote add origin your-link</code> for example: <code>git remote add origin https://github.com/kyle-parker-1500/note-taking-tutorial.git</code> That&#39;s my repository for this tutorial.</p>
+    </li>
+    <li>It should say something along the lines of: <em>You didn&#39;t fuck up</em></li>
+    </ol>
+    <p><img src="./images/git_commands_4.png" alt="Adding Remote Origin Link"></p>
+    <ol>
+    <li><p>Once that&#39;s done we want to now pull any changes made to our remote repository. We know there aren&#39;t any changes but it&#39;s good practice.</p>
+    </li>
+    <li><p>So do <code>git pull origin main</code> to update your current branch (we should be on <code>main</code>)</p>
+    </li>
+    <li>If you aren&#39;t sure use <code>git status</code> to check</li>
+    <li><p>If it&#39;s saying something along the lines of: <code>fatal: couldn&#39;t find remote ref main</code> then after screaming profanities at it for a little while:</p>
+    <ul>
+    <li>It&#39;s basically saying that we need to add things to our remote before we pull any changes so just move on to the next step and come back here later.</li>
+    </ul>
+    </li>
+    <li><p>Finally, we can stage our changes to be committed with <code>git add filepath/to/filename.filetype</code> or <code>git add .</code> → this one stages all changes to be committed, the first one only stages specific files</p>
+    </li>
+    <li>Now that we&#39;ve staged our changes (you can do <code>git status</code> to check if they&#39;re staged) we can do <code>git commit -m &quot;~-[,,_,,]:3 Meaningful Message&quot;</code>. The <code>-m</code> stands for message, but you can omit it to pull up a VIM terminal to type your message to. (I told you VIM was useful!)</li>
+    <li><p>Now that we&#39;ve committed we can do <code>git push origin main</code> (for now you&#39;re just going to push to main, but you can theoretically push to any remote branch that you want to). This will take our committed changes and merge them into our origin/upstream branch on the remote repo.</p>
+    </li>
+    <li><p>Something to note: If you&#39;re lazy like me and don&#39;t want to type out 4 words each time you push (I mean tbf they&#39;re hard words to type every few hours), you can do <code>git push -u origin main</code></p>
+    </li>
+    <li>This will set the upstream branch of <code>main</code> to be <code>origin main</code>, and then each time after that, to push, you can use: <code>git push</code></li>
+    <li>You can do something similar with <code>git pull</code> &rarr; Look it up!</li>
+    </ol>
+    <p>You should see a lot of text that says that Git is doing stuff. And then it should say successfully merged or something like that.</p>
+    <p>Keep in mind, you could have merge conflicts if you and a friend are working on the same file!</p>
+    <p>And then you&#39;re done! Hope you end up using this method for taking notes in class! Click <a href="#use-ai-to-create-quizzes-for-yourself">Here</a> to go to the AI Quiz portion of the Tutorial.</p>
+    <h2 id="for-regular-people">For Regular People</h2>
+    <p>Yes, I&#39;ll include images. You guys really need to learn how to read real words though. Not just phi upsilon chi kappa upsilon :)</p>
+    <p>Regular people refers to uncool people who don&#39;t use VIM or NeoVim (I&#39;m biased). I won&#39;t lie, that&#39;s the majority of you. But good news!
+    You can fix it! Just click this <a href="#for-vim-users">link</a> to learn how to install and use NeoVim! It&#39;s really a lot worse than it seems (oops, did I
+    type that out loud?). It&#39;s a lot of information... but it does give you a lot of power, and you definitely see a lot less disconnect between
+    your thoughts and ideas and your code/text. (This isn&#39;t an ad for Vim, I swear!)</p>
+    <p>Okay let&#39;s get started with the <strong>Regular People</strong> tutorial:</p>
+    <p>This will assume that you have some form of <a href="https://code.visualstudio.com/download">VSCode</a> or <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Intellij IDEA</a> installed. (You can also use NeoVim :) )
+    I&#39;ll stop mentioning it now.</p>
+    <p>Just so you know, I&#39;m quite terrible at using the Git GUI (graphical user interface) so this tutorial will use purely command line Git.
+    With that being said: go Git <a href="https://git-scm.com/install/">Git</a> if you don&#39;t have it already! *Poke, Poke* Git it?
+    (For those of you who&#39;ve read everything up to this point, ignore that).</p>
+    <p>If you don&#39;t know whether or not you have Git installed you can check by navigating to your terminal (for Mac and Linux users) or literally
+    going to <a href="https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&amp;gl=US&amp;ocid=pdpshare">terminal</a> for Windows users. (Install it if you
+    don&#39;t have it already! Please for the love of code don&#39;t use Cmd); ← this <code>;</code> was unintentional but I&#39;m leaving it. Anyway just do <code>git --version</code> to check the Git version on your terminal. If it&#39;s not working there&#39;s a good chance you either don&#39;t have it installed or messed up somewhere. In that case I would say to either ask Claude (love Claude for fixing Git issues) OR look it up.</p>
+    <p>Okay, launch your favorite IDE (Integrated Development Environment) (e.g.: Intellij or VSCode) and then open a new project.</p>
+    <h3 id="initializing-a-git-repo-on-a-local-machine">Initializing a Git Repo on a Local Machine</h3>
+    <p>Okay let&#39;s initialize a new Git repo on your local machine. First, make sure you&#39;re inside your IDE of choice, then open the builtin terminal.
+    With Intellij I think the hotkey (for Windows users) is: <em>ctrl+escape</em> for VSCode I think it&#39;s <em>ctrl+`</em> but don&#39;t quote me on that!</p>
+    <p>Once your terminal is open make sure that you&#39;re in your project&#39;s directory. To double check this use <code>pwd</code> (present working directory) to see
+    what your current file path is. You can get the filepath of your project by right clicking on where ever your project directory is and clicking <em>open in</em> and then your file explorer of choice → ex: Finder for Mac. You can see all the terminal commands that we&#39;ll be using by clicking: <a href="#terminal-commands">Here</a>.</p>
+    <ul>
+    <li>If your terminal says that you aren&#39;t in the correct directory, make sure to click the link above and go check out the terminal commands part of
+    this.
+    That will help.</li>
+    </ul>
+    <p>At this point, I&#39;ll assume you&#39;ve reached the current directory of your project. Perfect!</p>
+    <p>Let&#39;s start off by initializing a Git repository.
+    (I realize you can do this a lot more easily using the GUI stuff but just bear with me, you
+    might even learn something for once).
+    In your terminal type <code>git init</code>. If Git is installed properly you should see something like: &quot;Empty repository initialized.&quot;</p>
+    <p>Now let&#39;s add some notes. Just right click your empty project and click <em>add file</em>. Name the file something like <code>ThorIsTheGodOfThunderButHeCantEvenRunFasterThanATruckAlsoHeCantReallyFlyThatFastAndHasAnyoneEverThoughtAboutHowHeOnlyEverShootsLightningIMeanWhatIsTheGodOfThunderEvenSupposedToDoMakeLoudNoisesAndScareDogsIntoSubmissionOOOOhScary.md</code>.
+    The <code>.md</code> is very important here because that&#39;s the type of file we&#39;ll be using. It&#39;s called <em>markdown</em> and it basically allows us to write super nice and clean notes without doing much actual work ourselves. How do you think I&#39;m writing this tutorial right now? <a href="#markdown-commands">Here&#39;s</a> a link to my notes on markdown.</p>
+    <p>Now that you&#39;re an expert on markdown I expect you to write some notes into the <code>.md</code> file and save it.</p>
+    <p>I know you haven&#39;t done it yet. Go back and do it. I&#39;ll wait for you.</p>
+    <p><br>
+    <br>
+    <br>
+    <br>
+    <br></p>
+    <p>Okay I know for a fact you scrolled here just to see if I would keep the bit going... Haha I did. So funny. Now go back and write something... anything!</p>
+    <p>Done? Good.</p>
+    <p><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br></p>
+    <p>Ha! You thought you had me huh?!</p>
+    <p><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br></p>
+    <p>Okay I&#39;m done, on with the tutorial!</p>
+    <p>Now that you&#39;ve saved it (right? you&#39;ve saved it? <em>hint:</em> use <code>ctrl+s</code> or <code>command+s</code>) we can stage our changes to commit in Git.
+    So reopen your terminal and type this in. Well actually, first, we want to check if you&#39;re on the correct branch.
+    For those of you who worked ahead and checked out a different branch, you did nothing wrong, in-fact I&#39;d go as far as to say I&#39;m proud of you.
+    But for the sake of this tutorial don&#39;t follow the next part word for word. For anyone that doesn&#39;t know what the *fuck* I&#39;m talking about:
+    this is for you.</p>
+    <p>Type in <code>git status</code>. If it says on branch <code>main</code>, you&#39;re doing good. If it says on branch <code>master</code> we&#39;re going to have to change some things.</p>
+    <ul>
+    <li>The reason we have to change things is because <code>GitHub</code> is transitioning away from development branches being named <code>master</code>, why? no fucking idea. But they make it <em>really</em> fucking annoying if we don&#39;t rename it.</li>
+    <li>On the bright side, I get to show you how to rename a branch in Git.</li>
+    </ul>
+    <p>So do <code>git branch -M main</code>, that should rename your branch from <code>master</code> to <code>main</code>. Do <code>git status</code> and if it says something like: You&#39;re on branch main. Then you&#39;re good. For everyone who it says something else for: good luck!</p>
+    <p><img src="./images/git_commands_3.png" alt="Renaming Branch Git"></p>
+    <p>Now we&#39;re going to stage our changes. What this means is that we&#39;re going to select the changes that we want to see in our remote repository (online). To do this we can either do <code>git add file/path</code> to add specific files or <code>git add .</code> to add everything.
+    Once that&#39;s done you can do: <code>git status</code>. Everything should say staged, or they all should be green if your terminal is cool like mine #imcool.</p>
+    <p>Now let&#39;s do <code>git commit -m &quot;meaningful ~-[,,_,,]:3 message&quot;</code> for anyone wondering, my initial commit message usually includes an ascii version of
+    nyan cat. <code>-m</code> means add a message, but you can omit it if you want to be thrown into a VIM window that you don&#39;t understand how to use because you refused to learn VIM (smh).</p>
+    <p><img src="./images/git_commands_5.png" alt="Committing Without Failing"></p>
+    <p>P.S. If you end up in that window simply hit <code>shift+o</code> then type a message, then hit <code>esc</code>, then <code>:wq</code>. That should get you out. If you want to understand it though go up to <a href="#for-vim-users">Learn Vim</a>.</p>
+    <p><img src="./images/git_commands_6.png" alt="Committing With Fail"></p>
+    <h2 id="setting-up-github-repository">Setting up GitHub Repository</h2>
+    <p>Now navigate to your personal GitHub page. For example, the link for my page would look something like: <code>https://github.com/kyle-parker-1500/</code>
+    It&#39;s right <a href="https://github.com/kyle-parker-1500/">here</a> if you want to check it out.</p>
+    <p>Click on the <code>repositories</code> tab (it&#39;s right next to <code>overview</code>). Then click on <code>new</code> (it&#39;s a green button in the top right, can&#39;t miss it).</p>
+    <p><img src="./images/github_new_button_and_repo_tab.png" alt="Setting Up GitHub Repository"></p>
+    <p>Name your repository something meaningful like: <code>DrCIsGenuinelyTheBestProfessorIThinkIveEverHadAndHeSoFarHasMadeTheBestJokesAndThisIsntEvenMyImpressionOfHimAsHisTAItsMoresoJustLikeAGeneralRespectForHisLevelOfChillWhichBTWGetsALotBetterIfYouCommitEnoughTimeToHisProjectsAndUseResourcesLikeThisTutorialToLearnTheMaterialForHisClass</code></p>
+    <p>Once you&#39;ve done that change your repository visibility to Private (I mean you can keep it public but what if a recruiter is looking at your repo and is like wtf! why are there so many profanities in this dude&#39;s notes! Hasn&#39;t happened to me yet, but it will probably).
+    Don&#39;t change anything after that and hit create repository. Copy the link that&#39;s given by the next page and take note of the <code>.git</code> at the end of the link. For example: <code>https://github.com/kyle-parker-1500/note-taking-tutorial.git</code> is my remote repo link for this repository.</p>
+    <p><img src="./images/github_new_repo_creation_2.png" alt="Naming Repository"></p>
+    <p>After that go back to your local machine and type in <code>git push origin main</code>. You should see some stuff saying that it worked. If you see a red message you either typed it wrong
+    or fucked up the process somehow so I wish you luck. Claude is a really good resource in this case.</p>
+    <p>If you want to only have to type <code>git push origin main</code> once per project then you can also type in <code>git push -u origin main</code>. This sets up your remote branch to be the upstream of your current branch... essentially linking them together. So the next time you want to push you can use <code>git push</code> instead of <code>git push origin main</code>. For the record,
+    you can also do something similar with <code>git pull</code>, but I&#39;ll let you figure out how to do that yourself.</p>
+    <p><img src="./images/git_commands_8.png" alt="Git Push"></p>
+    <p>And then we&#39;re done! That&#39;s it if you only want to take notes, but I can also show you an easy and simple way to study with those notes too. Just go to the <a href="#use-ai-to-create-quizzes-for-yourself">create quizzes with ai</a> section of this tutorial. I&#39;ll even include the prompt for you to copy.</p>
+    <h2 id="use-ai-to-create-quizzes-for-yourself">Use AI to Create Quizzes for Yourself</h2>
+    <p>Welcome to the section you&#39;ve all been waiting for! <strong>How do I use AI to help me get better grades on tests?</strong> Well it&#39;s quite simple really. All you have to do is know what to type. But shoot Kyle... I don&#39;t know what to type! Well that&#39;s alright, because I&#39;m able to show you pretty easily. BUT I WON&#39;T! I&#39;d rather gatekeep this information! You really thought I&#39;d just give it away huh?</p>
+    <p>Well you were right. Okay so my favorite AIs to use are Claude and ChatGPT, but we don&#39;t like OpenAI that much right now so just go with Claude. It&#39;s got a better UI, it&#39;s
+    trained to better help programmers, it&#39;s overall better than Chat. That being said the one limitation for those of us who don&#39;t have premium is the chat limit. Now, you can
+    get around this by just using multiple accounts but sometimes that&#39;s a little annoying. I don&#39;t have some special hack for this, I would just say use Chat in that case. All of us at CSUMB (I think) have a premium Chat account; which affords us a much higher chat limit. For this tutorial I&#39;ll be using Claude but they&#39;re all the same.</p>
+    <p>Now keep this in mind: <strong>Claude for <em>quality</em></strong>, <strong>Chat for <em>quantity</em></strong>. That&#39;s what I go by anyway, but it&#39;s up to you at the end of the day which model you pick. Now, one of the beautiful things about writing your notes in <code>.md</code> and uploading them to GitHub is that you can access them from anywhere. Another is that you can clone your repository onto
+    just about any machine and use that machine to easily drag and drop your notes into your chosen AI engine.</p>
+    <p>So do that. Typically I have a limit of around 10 files per single chat but you can just tell Chat or Claude to wait until you&#39;ve uploaded all your files for instructions. I would recommend that you create a project for each class that you want to study for and put all your notes into those projects.</p>
+    <p>You have to keep in mind that quality of your notes doesn&#39;t really matter here, what you want is to have as many notes with words that you don&#39;t understand on there. Typically what I do is copy the slides word for word and add in my own personal notes on top of those. This allows the AI to parse through your notes and find subjects that you&#39;re concerned about to quiz you on.</p>
+    <p>Now, I won&#39;t lie, this method works best for multiple choice, that being said, if you don&#39;t mind struggling for a little while (we&#39;re college students, we&#39;re used to struggling so don&#39;t be a loser (among college students that would be saying a lot)) then you can probably set the AI up for doing full sentence or coding answers.</p>
+    <p>What&#39;s nice about using AI for these quizzes and not your friends or me is that AI won&#39;t judge you if you mess something up. Actually it&#39;ll take it into account and use it for future quizzes if you use this prompt:</p>
+    <h2 id="prompt">Prompt</h2>
+    <pre><code>Create multiple choice quizzes <span class="hljs-keyword">for</span> <span class="hljs-keyword">me</span>. I want them <span class="hljs-keyword">to</span> be <span class="hljs-number">5</span> questions long <span class="hljs-keyword">and</span>
+    based <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> content <span class="hljs-keyword">that</span>'s covered <span class="hljs-keyword">in</span> these notes. Please grade <span class="hljs-keyword">the</span> previous quiz <span class="hljs-keyword">before</span> making
+    a new one. Only use <span class="hljs-keyword">the</span> content covered within <span class="hljs-keyword">the</span> notes, don't make up questions <span class="hljs-keyword">that</span> you think
+    should be <span class="hljs-keyword">on</span> there. Use spaced repetition <span class="hljs-keyword">for</span> your quizzes, <span class="hljs-keyword">if</span> I miss something I want <span class="hljs-keyword">it</span> <span class="hljs-keyword">to</span> show
+    up <span class="hljs-keyword">in</span> future quizzes <span class="hljs-keyword">until</span> I understand <span class="hljs-keyword">it</span>.
+    </code></pre><p>This should be uploaded after you finish uploading your notes. You can also say &quot;create coding questions for me to answer&quot;. (Make sure to specify the language!) And that&#39;s basically it!</p>
+    <p><img src="./images/claude_1.png" alt="Claude Example"></p>
+    <p>Here&#39;s a quiz I made by uploading this tutorial and asking it to give me quizzes on Nvim and Git. (Also I used my prompt). Here&#39;s what grading looks like. But... damn, looks like I missed one. Dang it. (Also note that my answer was correct but Claude fucked up the question so even with this stuff you have to be careful).
+    Here&#39;s the output after this: (Great example of spaced repetition).</p>
+    <p><img src="./images/claude_2.png" alt="Claude Example Spaced Repetition"></p>
+    <p>Continue quizzing as long as you feel you need it and make sure to quiz yourself before your exam (and get enough sleep the night before 6-8 hours). I usually quiz myself for 2-4 hours in the days leading up to the exam (2-4 total). Coming back to it over multiple days really helps the information stick in your mind. That being said, if your professor allows you a cheat sheet make sure you allocate time to write it! That act of writing down information also helps cement the information in your head. You can even ask the AI what it thinks should be on the cheat sheet. Just make sure you&#39;re not printing it!!!! It&#39;s vitally important that you write it out yourself. And if your professor doesn&#39;t allow it do it anyways, just <em>don&#39;t</em> take it to class!</p>
+    <p>Thanks for reading!</p>
+    <p>If you enjoyed this tutorial and want to see similar things: I call it fun learning, where the language doesn&#39;t matter (fuck it), the message does. Then you can check out
+    <a href="kyle-parker-1500.github.io/blog">kyle-parker-1500.github.io/blog</a>. If you get an error that&#39;s because I have yet to upload anything to that but hopefully this and many more tutorials will be up there soon. I&#39;m planning on making a &quot;How to contribute to open source&quot; tutorial soon based on my experiences in the CTI microinternship so stay tuned.</p>
+    <p>Final thing: If you have questions about this tutorial or for my you can either message me on Slack (much preferred) or email me: <a href="mailto:kylparker@csumb.edu">kylparker@csumb.edu</a></p>
+    
   </body>
 </html>
