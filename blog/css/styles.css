@@ -1,3 +1,7 @@
+:root {
+    --default-background: #a7b5ce;
+}
+
 img {
     margin: 0;
     padding: 0;
@@ -9,4 +13,18 @@ body {
     font-family: 'Times New Roman', Times, serif;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#middleBackground {
+    background-color: var(--default-background);
+    margin: 0;
+    padding: 20px;
 }
