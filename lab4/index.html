@@ -6,33 +6,65 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" async defer></script>
         <script src="js/script.js" defer></script>
     </head>
     <body>
         <h1> Sign Up Form </h1>
         <fieldset>
             <legend>Sign Up</legend>
-            First Name: <input type="text"><br>
-            Last Name: <input type="text"><br>
-            Email: <input type="text"><br>
-            Phone Number: <input type="text"><br><br>
-            Zip Code: <input id="zip" type="text"><br>
-            City: <span id="displayCity"></span>
-            <br>
-            Latitude: <span id="displayLatitude"></span>
-            <br>
-            Longitude: <span id="displayLongitude"></span>
-            <br><br>
-            State: <select id="state"></select><br>
-            Select a County: <select id = "county"></select><br>
+            <div class="input-group">
+                <span class="input-group-text">First and last name</span>
+                <input type="text" aria-label="First name" class="form-control">
+                <input type="text" aria-label="Last name" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's email" aria-label="Recipient's email" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">@csumb.edu</span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">(</span>
+                <input type="text" class="form-control" placeholder="Area code" aria-label="Area code">
+                <span class="input-group-text">)</span>
+                <input type="text" class="form-control" placeholder="Number" aria-label="Number">
+                <span class="input-group-text">-</span>
+                <input type="text" class="form-control" placeholder="Number" aria-label="Number">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Zip Code:</span>
+                <input id="zip" type="text" class="form-control">
+                <span id="falseZip"></span><br>
+            </div>
+            <div>
+                City: <span id="displayCity"></span><br>
+                Latitude: <span id="displayLatitude"></span><br>
+                Longitude: <span id="displayLongitude"></span><br>
+            </div>
+            <br> 
 
-            Desired Username: <input id="username" type="text"><br>
-            Password: <input id="password" type="password"><br>
-            <input id="showPass" type="checkbox">Show Password<br>
+            <select class="form-select" id="state"></select>
+            <select class="form-select" id="county" hidden></select>
 
-            <input id="submit" type="submit" value="Sign Up!">
-            <span id="is_hidden" hidden></span>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input id="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <span id="usernameAvailable"></span>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Password</span>
+                <input id="password" type="password" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <input id="showPass" type="checkbox" class="form-check-input mt-0"> Show Password
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Retype Password</span>
+                <input id="retypePass" type="password" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <input id="showRetype" type="checkbox" class="form-check-input mt-0"> Show Retyped Password<br>
+            <input id="submit" type="submit" class="btn btn-primary" value="Sign Up!"><br>
+            <span id="passValidation" hidden></span><br>
+            <span id="retypeValidation" hidden></span>
         </fieldset>
     </body>
 </html>
