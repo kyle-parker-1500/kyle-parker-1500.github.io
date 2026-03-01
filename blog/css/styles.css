@@ -1,5 +1,10 @@
 :root {
-    --default-background: #a7b5ce;
+    --middle-background: rgb(18, 116, 23);
+    --page-background: rgb(11, 64, 14); 
+    --text-color: rgb(215, 214, 214);
+    --link-color: rgb(0, 255, 17);
+    --img-color: rgb(0, 200, 17);
+    --border-color: rgb(0, 200, 17);
 }
 
 img {
@@ -7,6 +12,12 @@ img {
     padding: 0;
     width: 50%;
     height: auto;
+    border: 2px solid var(--img-color);
+    border-radius: 5px; 
+}
+
+a {
+    color: var(--link-color);
 }
 
 body {
@@ -15,16 +26,18 @@ body {
     margin-right: 10%;
     margin-top: 0;
     margin-bottom: 0;
+    color: var(--text-color);
+    background-color: var(--page-background);
 }
 
 table, th, td {
-    border: 2px solid black;
+    border: 2px solid var(--border-color);
     border-collapse: collapse;
     padding: 5px;
 }
 
 #middleBackground {
-    background-color: var(--default-background);
+    background-color: var(--middle-background);
     margin: 0;
     padding: 20px;
 }
