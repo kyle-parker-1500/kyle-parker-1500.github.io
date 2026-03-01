@@ -37,8 +37,6 @@ async function displayStates() {
 }
 
 async function displayCounty(usps) {
-    // show element
-    document.querySelector("#county").hidden = false;
     let url = `https://csumb.space/api/countyListAPI.php?state=${usps}`;
     try {
         const response = await fetch(url);
