@@ -1,12 +1,16 @@
-import github from '../assets/github.png';
-import linkedin from '../assets/linkedin.png';
-import lightGithub from '../assets/lightGithub.png';
-import lightLinkedin from '../assets/lightLinkedin.png';
+import github from '../assets/github/github_dark.svg';
+import githubLight from '../assets/github/github_light.svg';
+import linkedin from '../assets/linkedin/InBug-White.png';
+import linkedinLight from '../assets/linkedin/InBug-Black.png';
+import hero from '../assets/hero_kyle.png';
+import hi from '../assets/hi.png';
+import CV from '../assets/CV.pdf';
+import { DownloadIcon, Mail } from 'lucide-react';
 
 const Hero = ({ darkMode }) => {
     const socialIcons = [
-        { dark: github, light: lightGithub,alt: 'github' },
-        { dark: linkedin, light: lightLinkedin, alt: 'linkedin' },
+        { dark: github, light: githubLight, alt: 'github' },
+        { dark: linkedin, light: linkedinLight, alt: 'linkedin' },
     ];
     
     const darkTheme = {
@@ -36,7 +40,7 @@ const Hero = ({ darkMode }) => {
                 className='body-font z-10'
             >
                 <div className='container mx-auto flex px-4 sm:px-8
-                lg:px-14 py-12 lg:py-32 flex-col lg:flex items-center justify-between
+                lg:px-14 py-12 lg:py-14 flex-col lg:flex-row items-center justify-between
                 lg:mt-0 mt-14'>
                     <div className='lg:w-1/2 w-full flex flex-col items-center lg:items-start
                     text-center lg:text-left mb-12 lg:mb-0'>
@@ -54,10 +58,10 @@ const Hero = ({ darkMode }) => {
                                     <img
                                         src={ darkMode ? social.dark : social.light }
                                         alt={social.alt}
-                                        className={`w-8 h-8 sm:w-10 m:h-10 object-contain
+                                        className={`w-12 h-12 sm:w-14 m:h-14 object-contain
                                             ${darkMode
                                                 ? ''
-                                                : 'filter brightness-75'
+                                                : 'filter brightness-100'
                                             }`}
                                     />
                                 </a>
@@ -84,15 +88,62 @@ const Hero = ({ darkMode }) => {
                             Nullam varius at nisi non lobortis. Etiam non ex augue.
                         </p>
                         {/* Buttons */}
-                        <div>
-                            
+                        <div className='w-full pt-4 sm:pt-6'>
+                            <div className='sm:flex-row justify-center
+                            lg:justify-start gap-3 sm:gap-4'
+                            data-aos='fade-up'
+                            data-aos-delay='700'>
+                                <a href={CV} download className='w-full sm:w-auto'>
+                                    <button className='inline-flex items-center
+                                    justify-center text-white bg-linear-to-r from-orange-500 to-amber-500 border-0
+                                    py-3 px-6 sm:px-8 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] rounded-full text-base
+                                    sm:text-lg font-semibold transition-all duration-300 transform'>
+                                    <DownloadIcon className='w-4 h-4 sm:h-5 sm:w-5 mr-2'/>
+                                    Download Resume
+                                </button>
+                                </a>
+                                <a href='#contact' className='w-full sm:w-auto'>
+                                    <button className={`inline-flex items-center ${theme.buttonSecondary}
+                                    justify-center border-0
+                                    py-3 px-6 sm:px-8 hover:shadow-[0_0_40px_rgb(255,165,0,0.7)] rounded-full text-base
+                                    sm:text-lg font-semibold transition-all duration-300 transform`}>
+                                        <Mail className='w-4 h-4 sm:h-5 sm:w-5 mr-2'/>
+                                        Contact Me
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Image */}
+                    <div className='lg:w-1/2 w-full max-w-md lg:max-w-lg mt-8 lg:mt-0 flex justify-center'
+                    data-aos='fade-left'
+                    data-aos-delay='400'>
+                        <div className='relative w-4/5 sm:w-3/4 lg:w-full'>
+                            <div className='relative overflow-hidden'>
+                                <img 
+                                    src={hero} 
+                                    alt="Hero Image"
+                                    className='w-full h-auto object-cover transform
+                                    hover:scale-105 transition-transform duration-500'
+                                />                               
+                            </div>
+                            <img 
+                                src={hi}
+                                alt="Hi Icon"
+                                className='absolute -top-4 sm:top-4 left-6 sm:left-20 w-14 h-14
+                                sm:w-20 sm:h-20 object-contain animate-bounce opacity-90 z-10'
+                            />
                         </div>
                     </div>
                 </div>
-            </section>
-            
-        </div>
-    )
-}
+                <div className={`absolute -top-20 -left-20 w-40 h-40 sm:w-64 sm:h-64 ${theme.decorativeCircle}
+                rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-1000 hidden
+                sm:block`}>
 
-export default Hero
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default Hero;
